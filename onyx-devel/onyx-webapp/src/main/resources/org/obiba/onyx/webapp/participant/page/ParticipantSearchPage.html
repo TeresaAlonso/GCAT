@@ -1,0 +1,73 @@
+<html>
+  <body>
+    <wicket:extend>
+      <div id="participantSearchPageContent" class="obiba-box-content">
+      <div wicket:id="participantDetailsModalWindow" />
+      <div wicket:id="unlockInterview" />
+      <div wicket:id="editParticipantDetailsModalWindow" />
+      <div wicket:id="updateParticipantListWindow" />
+      <table>
+        <tr>
+          <td>
+            <div id="participantPageSearch" class="obiba-content-region">
+              <h1><wicket:message key="ParticipantSearch" /></h1>
+              <form wicket:id="searchForm" autocomplete="off">
+                <table style="border-spacing: 0em">
+                  <tr>
+	                <td>
+                      <input wicket:id="inputField" type="text" size="20" />
+                    </td>
+                    <td style="padding-right: 1.6667em">
+                      <input type="submit" class="obiba-button" value="" wicket:id="searchByInputField" />
+                    </td>
+                    <td>
+                      <button class="obiba-button" wicket:id="submit"><wicket:message key="Search"/></button>
+                      <button class="obiba-button" wicket:id="appointments"><wicket:message key="AppointmentsOfTheDay"/></button>
+                      <button class="obiba-button" wicket:id="interviews"><wicket:message key="CurrentInterviews"/></button>
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </td>
+          <td valign="top">
+            <span wicket:id="actions" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div id="participantPageSearchResults" class="obiba-content-region">
+              <h1 class="results-list"><wicket:message key="Participants" /></h1>              
+              <span wicket:id="participant-list" />
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <wicket:fragment wicket:id="actionFragment">
+        <div wicket:id="dialog" />
+        <div wicket:id="participant-registry-dialog" />
+        <div id="participantPageActions" class="obiba-content-region">
+          <h1><wicket:message key="Action" /></h1>
+          <button wicket:id="link" class="obiba-button"><span wicket:id="label"/></button>
+        </div>
+      </wicket:fragment>
+
+      <wicket:fragment wicket:id="actionList">
+        <a class="interviewAction" wicket:id="link">
+          <span wicket:id="label" />
+        </a>
+      </wicket:fragment>
+
+      <wicket:fragment wicket:id="lockedInterview">
+      	<img src="" wicket:id="lock"/>
+      </wicket:fragment>   
+
+      <wicket:fragment wicket:id="interviewStatus">
+      	<span class="interviewStatus" wicket:id="status"/>
+      </wicket:fragment>          
+
+	  </div>
+    </wicket:extend>
+  </body>
+</html>

@@ -1,0 +1,994 @@
+<questionnaire id="1" name="Mostres" version="1.0" uiType="standard" convertedToMagmaVariables="true">
+  <locales id="2">
+    <locale id="3">es</locale>
+    <locale id="4">ca</locale>
+  </locales>
+  <sections id="5">
+    <section id="6" name="A-EXTRACCION">
+      <pages id="7">
+        <page id="8" name="1" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="6"/>
+          <questions id="9">
+            <question id="10" name="INCIDENCIA_EXTRACCION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="11">
+                <questionCategory id="12">
+                  <question reference="10"/>
+                  <category id="13" name="SI" escape="false">
+                    <variableNames id="14"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="15"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="16">
+                  <question reference="10"/>
+                  <category id="17" name="NO" escape="false">
+                    <variableNames id="18"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="19"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <questions id="20"/>
+              <attributes id="21"/>
+            </question>
+            <question id="22" name="TIPO_CONTENEDOR_DONANTE" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="23">
+                <questionCategory id="24">
+                  <question reference="22"/>
+                  <category id="25" name="LHG" escape="false">
+                    <variableNames id="26"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="27"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="28">
+                  <question reference="22"/>
+                  <category id="29" name="SST" escape="false">
+                    <variableNames id="30"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="31"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="32">
+                  <question reference="22"/>
+                  <category id="33" name="ACD" escape="false">
+                    <variableNames id="34"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="35"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="36">
+                  <question reference="22"/>
+                  <category id="37" name="ZZZ" escape="false">
+                    <variableNames id="38"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="39"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="40" path="Mostres:DONANTE"/>
+              <questions id="41"/>
+              <attributes id="42"/>
+            </question>
+            <question id="43" name="TIPO_CONTENEDOR_NO_DONANTE" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="44">
+                <questionCategory id="45">
+                  <question reference="43"/>
+                  <category id="46" name="SED" escape="false">
+                    <variableNames id="47"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="48"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="49">
+                  <question reference="43"/>
+                  <category reference="25"/>
+                </questionCategory>
+                <questionCategory id="50">
+                  <question reference="43"/>
+                  <category reference="29"/>
+                </questionCategory>
+                <questionCategory id="51">
+                  <question reference="43"/>
+                  <category reference="33"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="52" path="Mostres:NO_DONANTE"/>
+              <questions id="53"/>
+              <attributes id="54"/>
+            </question>
+          </questions>
+        </page>
+        <page id="55" name="2" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="6"/>
+          <questions id="56">
+            <question id="57" name="EDTA_EXTRACCION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="55"/>
+              <questionCategories id="58">
+                <questionCategory id="59">
+                  <question reference="57"/>
+                  <category id="60" name="EDTA_EXTRACCION" escape="false">
+                    <openAnswerDefinition id="61" name="INCIDENCIA" dataType="TEXT" required="true">
+                      <attributes id="62"/>
+                      <validators id="63">
+                        <dataValidator id="64" dataType="TEXT">
+                          <rangeValidator id="65">
+                            <maximum>250</maximum>
+                          </rangeValidator>
+                        </dataValidator>
+                      </validators>
+                      <validationDataSources id="66"/>
+                      <defaultValues id="67"/>
+                      <openAnswerDefinitions id="68"/>
+                      <variableNames id="69"/>
+                    </openAnswerDefinition>
+                    <variableNames id="70"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="71"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="72" path="Mostres:TIPO_CONTENEDOR_NO_DONANTE.SED"/>
+              <questions id="73"/>
+              <attributes id="74"/>
+            </question>
+            <question id="75" name="PST_EXTRACCION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="55"/>
+              <questionCategories id="76">
+                <questionCategory id="77">
+                  <question reference="75"/>
+                  <category id="78" name="PST_EXTRACCION" escape="false">
+                    <openAnswerDefinition id="79" name="INCIDENCIA_PST" dataType="TEXT" required="true">
+                      <attributes id="80"/>
+                      <validators id="81">
+                        <dataValidator id="82" dataType="TEXT">
+                          <rangeValidator id="83">
+                            <maximum>250</maximum>
+                          </rangeValidator>
+                        </dataValidator>
+                      </validators>
+                      <validationDataSources id="84"/>
+                      <defaultValues id="85"/>
+                      <openAnswerDefinitions id="86"/>
+                      <variableNames id="87"/>
+                    </openAnswerDefinition>
+                    <variableNames id="88"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="89"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="90" path="Mostres:PST"/>
+              <questions id="91"/>
+              <attributes id="92"/>
+            </question>
+            <question id="93" name="SST_EXTRACCION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="55"/>
+              <questionCategories id="94">
+                <questionCategory id="95">
+                  <question reference="93"/>
+                  <category id="96" name="SST_EXTRACCION" escape="false">
+                    <openAnswerDefinition id="97" name="INCIDENCIA_SST" dataType="TEXT" required="true">
+                      <attributes id="98"/>
+                      <validators id="99">
+                        <dataValidator id="100" dataType="TEXT">
+                          <rangeValidator id="101">
+                            <maximum>250</maximum>
+                          </rangeValidator>
+                        </dataValidator>
+                      </validators>
+                      <validationDataSources id="102"/>
+                      <defaultValues id="103"/>
+                      <openAnswerDefinitions id="104"/>
+                      <variableNames id="105"/>
+                    </openAnswerDefinition>
+                    <variableNames id="106"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="107"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="108" path="Mostres:SST"/>
+              <questions id="109"/>
+              <attributes id="110"/>
+            </question>
+            <question id="111" name="ACD_EXTRACCION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="55"/>
+              <questionCategories id="112">
+                <questionCategory id="113">
+                  <question reference="111"/>
+                  <category id="114" name="ACD_EXTRACCION" escape="false">
+                    <openAnswerDefinition id="115" name="INCIDENCIA_ACD" dataType="TEXT" required="true">
+                      <attributes id="116"/>
+                      <validators id="117">
+                        <dataValidator id="118" dataType="TEXT">
+                          <rangeValidator id="119">
+                            <maximum>250</maximum>
+                          </rangeValidator>
+                        </dataValidator>
+                      </validators>
+                      <validationDataSources id="120"/>
+                      <defaultValues id="121"/>
+                      <openAnswerDefinitions id="122"/>
+                      <variableNames id="123"/>
+                    </openAnswerDefinition>
+                    <variableNames id="124"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="125"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="126" path="Mostres:ACD"/>
+              <questions id="127"/>
+              <attributes id="128"/>
+            </question>
+            <question id="129" name="BOLSA_EXTRACCION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="55"/>
+              <questionCategories id="130">
+                <questionCategory id="131">
+                  <question reference="129"/>
+                  <category id="132" name="BOLSA_EXTRACCION" escape="false">
+                    <openAnswerDefinition id="133" name="INCIDENCIA_BOLSA" dataType="TEXT" required="true">
+                      <attributes id="134"/>
+                      <validators id="135"/>
+                      <validationDataSources id="136"/>
+                      <defaultValues id="137"/>
+                      <openAnswerDefinitions id="138"/>
+                      <variableNames id="139"/>
+                    </openAnswerDefinition>
+                    <variableNames id="140"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="141"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="142" path="Mostres:TIPO_CONTENEDOR_DONANTE.ZZZ"/>
+              <questions id="143"/>
+              <attributes id="144"/>
+            </question>
+          </questions>
+        </page>
+      </pages>
+      <sections id="145"/>
+    </section>
+    <section id="146" name="B-PRE_PROCESAMIENTO">
+      <pages id="147">
+        <page id="148" name="3" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="146"/>
+          <questions id="149">
+            <question id="150" name="INCIDENCIA_PRE_PROCESAMIENTO" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="148"/>
+              <questionCategories id="151">
+                <questionCategory id="152">
+                  <question reference="150"/>
+                  <category reference="13"/>
+                </questionCategory>
+                <questionCategory id="153">
+                  <question reference="150"/>
+                  <category reference="17"/>
+                </questionCategory>
+              </questionCategories>
+              <questions id="154"/>
+              <attributes id="155"/>
+            </question>
+            <question id="156" name="TIPO_CONTENEDOR_DONANTE_PRE_PROCESAMIENTO" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="148"/>
+              <questionCategories id="157">
+                <questionCategory id="158">
+                  <question reference="156"/>
+                  <category reference="25"/>
+                </questionCategory>
+                <questionCategory id="159">
+                  <question reference="156"/>
+                  <category reference="29"/>
+                </questionCategory>
+                <questionCategory id="160">
+                  <question reference="156"/>
+                  <category reference="33"/>
+                </questionCategory>
+                <questionCategory id="161">
+                  <question reference="156"/>
+                  <category reference="37"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="162" path="Mostres:PRE_PROCESAMIENTO_DONANTE"/>
+              <questions id="163"/>
+              <attributes id="164"/>
+            </question>
+            <question id="165" name="TIPO_CONTENEDOR_NO_DONANTE_PRE_PROCESAMIENTO" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="148"/>
+              <questionCategories id="166">
+                <questionCategory id="167">
+                  <question reference="165"/>
+                  <category reference="46"/>
+                </questionCategory>
+                <questionCategory id="168">
+                  <question reference="165"/>
+                  <category reference="25"/>
+                </questionCategory>
+                <questionCategory id="169">
+                  <question reference="165"/>
+                  <category reference="29"/>
+                </questionCategory>
+                <questionCategory id="170">
+                  <question reference="165"/>
+                  <category reference="33"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="171" path="Mostres:PRE_PROCESAMIENTO_NO_DONANTE"/>
+              <questions id="172"/>
+              <attributes id="173"/>
+            </question>
+          </questions>
+        </page>
+        <page id="174" name="4" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="146"/>
+          <questions id="175">
+            <question id="176" name="INCIDENCIAS_EDTA" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="174"/>
+              <questionCategories id="177">
+                <questionCategory id="178">
+                  <question reference="176"/>
+                  <category id="179" name="I" escape="false">
+                    <variableNames id="180"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="181"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="182">
+                  <question reference="176"/>
+                  <category id="183" name="J" escape="false">
+                    <variableNames id="184"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="185"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="186">
+                  <question reference="176"/>
+                  <category id="187" name="O" escape="false">
+                    <variableNames id="188"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="189"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="190">
+                  <question reference="176"/>
+                  <category id="191" name="X" escape="false">
+                    <variableNames id="192"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="193"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="194">
+                  <question reference="176"/>
+                  <category id="195" name="Z" escape="false">
+                    <openAnswerDefinition id="196" name="_ALTRES_1383821222129" dataType="TEXT" required="true">
+                      <attributes id="197"/>
+                      <validators id="198">
+                        <dataValidator id="199" dataType="TEXT">
+                          <rangeValidator id="200">
+                            <maximum>250</maximum>
+                          </rangeValidator>
+                        </dataValidator>
+                      </validators>
+                      <validationDataSources id="201"/>
+                      <defaultValues id="202"/>
+                      <openAnswerDefinitions id="203"/>
+                      <variableNames id="204"/>
+                    </openAnswerDefinition>
+                    <variableNames id="205"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="206"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="207" path="Mostres:TIPO_CONTENEDOR_NO_DONANTE_PRE_PROCESAMIENTO.SED"/>
+              <questions id="208"/>
+              <attributes id="209"/>
+            </question>
+          </questions>
+        </page>
+        <page id="210" name="5" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="146"/>
+          <questions id="211">
+            <question id="212" name="STEP_PST" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="210"/>
+              <questionCategories id="213">
+                <questionCategory id="214">
+                  <question reference="212"/>
+                  <category id="215" name="PRE_CENTRIFUGACION" escape="false">
+                    <variableNames id="216"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="217"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="218">
+                  <question reference="212"/>
+                  <category id="219" name="CENTRIFUGACION" escape="false">
+                    <variableNames id="220"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="221"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="222" path="Mostres:PST_PRE_PROCESAMIENTO"/>
+              <questions id="223"/>
+              <attributes id="224"/>
+            </question>
+            <question id="225" name="PST_PRE_CENTRIFUGACION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="210"/>
+              <questionCategories id="226">
+                <questionCategory id="227">
+                  <question reference="225"/>
+                  <category id="228" name="A" escape="false">
+                    <variableNames id="229"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="230"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="231">
+                  <question reference="225"/>
+                  <category id="232" name="B" escape="false">
+                    <variableNames id="233"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="234"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="235">
+                  <question reference="225"/>
+                  <category id="236" name="C" escape="false">
+                    <variableNames id="237"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="238"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="239">
+                  <question reference="225"/>
+                  <category id="240" name="D" escape="false">
+                    <variableNames id="241"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="242"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="243">
+                  <question reference="225"/>
+                  <category id="244" name="E" escape="false">
+                    <variableNames id="245"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="246"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="247">
+                  <question reference="225"/>
+                  <category id="248" name="F" escape="false">
+                    <variableNames id="249"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="250"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="251">
+                  <question reference="225"/>
+                  <category id="252" name="G" escape="false">
+                    <variableNames id="253"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="254"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="255">
+                  <question reference="225"/>
+                  <category id="256" name="H" escape="false">
+                    <variableNames id="257"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="258"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="259">
+                  <question reference="225"/>
+                  <category id="260" name="I" escape="false">
+                    <variableNames id="261"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="262"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="263">
+                  <question reference="225"/>
+                  <category id="264" name="J" escape="false">
+                    <variableNames id="265"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="266"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="267">
+                  <question reference="225"/>
+                  <category id="268" name="K" escape="false">
+                    <variableNames id="269"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="270"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="271">
+                  <question reference="225"/>
+                  <category id="272" name="L" escape="false">
+                    <variableNames id="273"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="274"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="275">
+                  <question reference="225"/>
+                  <category id="276" name="M" escape="false">
+                    <variableNames id="277"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="278"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="279">
+                  <question reference="225"/>
+                  <category id="280" name="N" escape="false">
+                    <variableNames id="281"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="282"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="283">
+                  <question reference="225"/>
+                  <category id="284" name="O" escape="false">
+                    <variableNames id="285"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="286"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="287">
+                  <question reference="225"/>
+                  <category id="288" name="X" escape="false">
+                    <variableNames id="289"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="290"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="291">
+                  <question reference="225"/>
+                  <category id="292" name="Z" escape="false">
+                    <openAnswerDefinition id="293" name="ALTRES" dataType="TEXT" required="true">
+                      <attributes id="294"/>
+                      <validators id="295">
+                        <dataValidator reference="199"/>
+                      </validators>
+                      <validationDataSources id="296"/>
+                      <defaultValues id="297"/>
+                      <openAnswerDefinitions id="298"/>
+                      <variableNames id="299"/>
+                    </openAnswerDefinition>
+                    <variableNames id="300"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="301"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="302" path="Mostres:STEP_PST.PRE_CENTRIFUGACION"/>
+              <questions id="303"/>
+              <attributes id="304"/>
+            </question>
+            <question id="305" name="PST_CENTRIFUGACION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="210"/>
+              <questionCategories id="306">
+                <questionCategory id="307">
+                  <question reference="305"/>
+                  <category id="308" name="A" escape="false">
+                    <variableNames id="309"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="310"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="311">
+                  <question reference="305"/>
+                  <category id="312" name="B" escape="false">
+                    <variableNames id="313"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="314"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="315">
+                  <question reference="305"/>
+                  <category id="316" name="C" escape="false">
+                    <variableNames id="317"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="318"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="319">
+                  <question reference="305"/>
+                  <category id="320" name="D" escape="false">
+                    <variableNames id="321"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="322"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="323">
+                  <question reference="305"/>
+                  <category id="324" name="E" escape="false">
+                    <variableNames id="325"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="326"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="327">
+                  <question reference="305"/>
+                  <category id="328" name="F" escape="false">
+                    <variableNames id="329"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="330"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="331">
+                  <question reference="305"/>
+                  <category id="332" name="G" escape="false">
+                    <variableNames id="333"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="334"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="335">
+                  <question reference="305"/>
+                  <category id="336" name="H" escape="false">
+                    <variableNames id="337"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="338"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="339">
+                  <question reference="305"/>
+                  <category id="340" name="I" escape="false">
+                    <variableNames id="341"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="342"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="343">
+                  <question reference="305"/>
+                  <category id="344" name="J" escape="false">
+                    <variableNames id="345"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="346"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="347">
+                  <question reference="305"/>
+                  <category id="348" name="M" escape="false">
+                    <variableNames id="349"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="350"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="351">
+                  <question reference="305"/>
+                  <category id="352" name="N" escape="false">
+                    <variableNames id="353"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="354"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="355">
+                  <question reference="305"/>
+                  <category id="356" name="X" escape="false">
+                    <variableNames id="357"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="358"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="359">
+                  <question reference="305"/>
+                  <category id="360" name="Z" escape="false">
+                    <openAnswerDefinition id="361" name="ALTRES_CENTRIFUGACION" dataType="TEXT" required="true">
+                      <attributes id="362"/>
+                      <validators id="363">
+                        <dataValidator id="364" dataType="TEXT">
+                          <rangeValidator id="365">
+                            <maximum>250</maximum>
+                          </rangeValidator>
+                        </dataValidator>
+                      </validators>
+                      <validationDataSources id="366"/>
+                      <defaultValues id="367"/>
+                      <openAnswerDefinitions id="368"/>
+                      <variableNames id="369"/>
+                    </openAnswerDefinition>
+                    <variableNames id="370"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="371"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="372" path="Mostres:STEP_PST.CENTRIFUGACION"/>
+              <questions id="373"/>
+              <attributes id="374"/>
+            </question>
+          </questions>
+        </page>
+        <page id="375" name="6" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="146"/>
+          <questions id="376">
+            <question id="377" name="STEP_SST" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="375"/>
+              <questionCategories id="378">
+                <questionCategory id="379">
+                  <question reference="377"/>
+                  <category reference="215"/>
+                </questionCategory>
+                <questionCategory id="380">
+                  <question reference="377"/>
+                  <category reference="219"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="381" path="Mostres:SST_PRE_PROCESAMIENTO"/>
+              <questions id="382"/>
+              <attributes id="383"/>
+            </question>
+            <question id="384" name="SST_PRE_CENTRIFUGACION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="375"/>
+              <questionCategories id="385">
+                <questionCategory id="386">
+                  <question reference="384"/>
+                  <category reference="228"/>
+                </questionCategory>
+                <questionCategory id="387">
+                  <question reference="384"/>
+                  <category reference="232"/>
+                </questionCategory>
+                <questionCategory id="388">
+                  <question reference="384"/>
+                  <category reference="236"/>
+                </questionCategory>
+                <questionCategory id="389">
+                  <question reference="384"/>
+                  <category reference="240"/>
+                </questionCategory>
+                <questionCategory id="390">
+                  <question reference="384"/>
+                  <category reference="244"/>
+                </questionCategory>
+                <questionCategory id="391">
+                  <question reference="384"/>
+                  <category reference="248"/>
+                </questionCategory>
+                <questionCategory id="392">
+                  <question reference="384"/>
+                  <category reference="252"/>
+                </questionCategory>
+                <questionCategory id="393">
+                  <question reference="384"/>
+                  <category reference="256"/>
+                </questionCategory>
+                <questionCategory id="394">
+                  <question reference="384"/>
+                  <category reference="260"/>
+                </questionCategory>
+                <questionCategory id="395">
+                  <question reference="384"/>
+                  <category reference="264"/>
+                </questionCategory>
+                <questionCategory id="396">
+                  <question reference="384"/>
+                  <category reference="268"/>
+                </questionCategory>
+                <questionCategory id="397">
+                  <question reference="384"/>
+                  <category reference="272"/>
+                </questionCategory>
+                <questionCategory id="398">
+                  <question reference="384"/>
+                  <category reference="276"/>
+                </questionCategory>
+                <questionCategory id="399">
+                  <question reference="384"/>
+                  <category reference="280"/>
+                </questionCategory>
+                <questionCategory id="400">
+                  <question reference="384"/>
+                  <category reference="284"/>
+                </questionCategory>
+                <questionCategory id="401">
+                  <question reference="384"/>
+                  <category reference="288"/>
+                </questionCategory>
+                <questionCategory id="402">
+                  <question reference="384"/>
+                  <category reference="292"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="403" path="Mostres:STEP_SST.PRE_CENTRIFUGACION"/>
+              <questions id="404"/>
+              <attributes id="405"/>
+            </question>
+            <question id="406" name="SST_CENTRIFUGACION" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="375"/>
+              <questionCategories id="407">
+                <questionCategory id="408">
+                  <question reference="406"/>
+                  <category reference="308"/>
+                </questionCategory>
+                <questionCategory id="409">
+                  <question reference="406"/>
+                  <category reference="312"/>
+                </questionCategory>
+                <questionCategory id="410">
+                  <question reference="406"/>
+                  <category reference="316"/>
+                </questionCategory>
+                <questionCategory id="411">
+                  <question reference="406"/>
+                  <category reference="320"/>
+                </questionCategory>
+                <questionCategory id="412">
+                  <question reference="406"/>
+                  <category reference="324"/>
+                </questionCategory>
+                <questionCategory id="413">
+                  <question reference="406"/>
+                  <category reference="328"/>
+                </questionCategory>
+                <questionCategory id="414">
+                  <question reference="406"/>
+                  <category reference="332"/>
+                </questionCategory>
+                <questionCategory id="415">
+                  <question reference="406"/>
+                  <category reference="336"/>
+                </questionCategory>
+                <questionCategory id="416">
+                  <question reference="406"/>
+                  <category reference="340"/>
+                </questionCategory>
+                <questionCategory id="417">
+                  <question reference="406"/>
+                  <category reference="344"/>
+                </questionCategory>
+                <questionCategory id="418">
+                  <question reference="406"/>
+                  <category reference="348"/>
+                </questionCategory>
+                <questionCategory id="419">
+                  <question reference="406"/>
+                  <category reference="352"/>
+                </questionCategory>
+                <questionCategory id="420">
+                  <question reference="406"/>
+                  <category reference="356"/>
+                </questionCategory>
+                <questionCategory id="421">
+                  <question reference="406"/>
+                  <category reference="360"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="422" path="Mostres:STEP_SST.CENTRIFUGACION"/>
+              <questions id="423"/>
+              <attributes id="424"/>
+            </question>
+          </questions>
+        </page>
+        <page id="425" name="7" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="146"/>
+          <questions id="426">
+            <question id="427" name="INCIDENCIAS_ACD" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="425"/>
+              <questionCategories id="428">
+                <questionCategory id="429">
+                  <question reference="427"/>
+                  <category reference="179"/>
+                </questionCategory>
+                <questionCategory id="430">
+                  <question reference="427"/>
+                  <category reference="183"/>
+                </questionCategory>
+                <questionCategory id="431">
+                  <question reference="427"/>
+                  <category reference="187"/>
+                </questionCategory>
+                <questionCategory id="432">
+                  <question reference="427"/>
+                  <category reference="191"/>
+                </questionCategory>
+                <questionCategory id="433">
+                  <question reference="427"/>
+                  <category reference="195"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="434" path="Mostres:ACD_PRE_PROCESAMIENTO"/>
+              <questions id="435"/>
+              <attributes id="436"/>
+            </question>
+          </questions>
+        </page>
+        <page id="437" name="8" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="146"/>
+          <questions id="438">
+            <question id="439" name="INCIDENCIAS_BOLSA" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="437"/>
+              <questionCategories id="440">
+                <questionCategory id="441">
+                  <question reference="439"/>
+                  <category reference="179"/>
+                </questionCategory>
+                <questionCategory id="442">
+                  <question reference="439"/>
+                  <category reference="183"/>
+                </questionCategory>
+                <questionCategory id="443">
+                  <question reference="439"/>
+                  <category reference="187"/>
+                </questionCategory>
+                <questionCategory id="444">
+                  <question reference="439"/>
+                  <category reference="191"/>
+                </questionCategory>
+                <questionCategory id="445">
+                  <question reference="439"/>
+                  <category reference="195"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="446" path="Mostres:TIPO_CONTENEDOR_DONANTE_PRE_PROCESAMIENTO.ZZZ"/>
+              <questions id="447"/>
+              <attributes id="448"/>
+            </question>
+          </questions>
+        </page>
+      </pages>
+      <sections id="449"/>
+    </section>
+  </sections>
+  <variables id="450">
+    <variable id="451" name="ACD" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="452" name="script" valueType="text">$(&apos;TIPO_CONTENEDOR_DONANTE.ACD&apos;).or($(&apos;TIPO_CONTENEDOR_NO_DONANTE.ACD&apos;));</attribute>
+      </attributes>
+    </variable>
+    <variable id="453" name="ACD_PRE_PROCESAMIENTO" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="454" name="script" valueType="text">$(&apos;TIPO_CONTENEDOR_DONANTE_PRE_PROCESAMIENTO.ACD&apos;).or($(&apos;TIPO_CONTENEDOR_NO_DONANTE_PRE_PROCESAMIENTO.ACD&apos;));</attribute>
+      </attributes>
+    </variable>
+    <variable id="455" name="DONANTE" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="456" name="script" valueType="text">$(&apos;Extraccion:TIPO_PARTICIPANTE.Y&apos;).and($(&apos;INCIDENCIA_EXTRACCION.SI&apos;))</attribute>
+      </attributes>
+    </variable>
+    <variable id="457" name="NO_DONANTE" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="458" name="script" valueType="text">$(&apos;Extraccion:TIPO_PARTICIPANTE.N&apos;).and($(&apos;INCIDENCIA_EXTRACCION.SI&apos;))</attribute>
+      </attributes>
+    </variable>
+    <variable id="459" name="PST" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="460" name="script" valueType="text">$(&apos;TIPO_CONTENEDOR_DONANTE.LHG&apos;).or($(&apos;TIPO_CONTENEDOR_NO_DONANTE.LHG&apos;));</attribute>
+      </attributes>
+    </variable>
+    <variable id="461" name="PST_PRE_PROCESAMIENTO" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="462" name="script" valueType="text">$(&apos;TIPO_CONTENEDOR_DONANTE_PRE_PROCESAMIENTO.LHG&apos;).or($(&apos;TIPO_CONTENEDOR_NO_DONANTE_PRE_PROCESAMIENTO.LHG&apos;));</attribute>
+      </attributes>
+    </variable>
+    <variable id="463" name="SST" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="464" name="script" valueType="text">$(&apos;TIPO_CONTENEDOR_DONANTE.SST&apos;).or($(&apos;TIPO_CONTENEDOR_NO_DONANTE.SST&apos;));</attribute>
+      </attributes>
+    </variable>
+    <variable id="465" name="SST_PRE_PROCESAMIENTO" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="466" name="script" valueType="text">$(&apos;TIPO_CONTENEDOR_DONANTE_PRE_PROCESAMIENTO.SST&apos;).or($(&apos;TIPO_CONTENEDOR_NO_DONANTE_PRE_PROCESAMIENTO.SST&apos;));</attribute>
+      </attributes>
+    </variable>
+    <variable id="467" name="PRE_PROCESAMIENTO_DONANTE" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="468" name="script" valueType="text">$(&apos;Extraccion:TIPO_PARTICIPANTE.Y&apos;).and($(&apos;INCIDENCIA_PRE_PROCESAMIENTO.SI&apos;))</attribute>
+      </attributes>
+    </variable>
+    <variable id="469" name="PRE_PROCESAMIENTO_NO_DONANTE" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="470" name="script" valueType="text">$(&apos;Extraccion:TIPO_PARTICIPANTE.N&apos;).and($(&apos;INCIDENCIA_PRE_PROCESAMIENTO.SI&apos;))</attribute>
+      </attributes>
+    </variable>
+  </variables>
+</questionnaire>

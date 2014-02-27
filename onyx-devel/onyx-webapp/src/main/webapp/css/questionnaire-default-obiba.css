@@ -1,0 +1,272 @@
+/*
+* Customized default questionnaire elements stylesheet.
+* Use css classes based on questionnaire elements (<questionnaire>-<type>-<name>).
+* Use .obiba-lang-* class to customize per questionnaire administration language.
+*/
+
+.wizard-content {
+  padding-top: 0em;
+}
+
+.page {
+	padding-top: 0.8333em;
+}
+
+.page a:hover {
+  text-decoration: none;
+}
+
+.section {
+    margin-bottom: 0.833em;
+	font-weight: bold;
+	font-size: larger;	
+	padding-bottom:0.8333em;
+	border-bottom: 0.0833em solid #1A3150;
+}
+
+.page > div.label {
+	line-height:1.4;
+	font-weight: bold;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    border-bottom: 1px solid #BFD3E3;
+}
+
+.questions {
+	padding-bottom:1.7500em;
+	border-bottom: 0.0833em solid #BFD3E3;
+	margin-bottom:0.5833em;
+}
+
+.questions:last-child {
+	border-bottom: 0em !important;
+}
+
+.obiba-quartz-boilerplate {
+	font-weight:bold;
+	font-size: 1.2em
+}
+
+.obiba-quartz-boilerplate .label li {
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
+.categories .questions > .obiba-quartz-boilerplate {
+	background: transparent url(../icons/bullet_orange.png) no-repeat scroll left center;
+	margin-left:1.6667em;
+	margin-top:0.8333em;
+	padding-left:1.2500em;
+}
+
+.categories > .questions {
+	border-bottom: 0em;
+}
+
+.question {	
+}
+
+.question > div.label {
+	font-weight: bold;
+	padding-bottom:0.4167em;
+	padding-top:0.4167em;
+	text-indent: 0;
+}
+
+.help-toggle {
+	background: url(../images/icons/16X16/help2.gif) no-repeat;
+	margin-left: 0.4167em;
+}
+
+.help-toggle a:hover {
+	text-decoration: none;
+}
+
+.comment-add {
+	background:transparent url(../icons/note_b_add.png) no-repeat scroll center top;
+	padding-left:0.8333em;
+	padding-right:0.8333em;
+}
+
+.comment-edit {
+	background:transparent url(../icons/note_b_mod.png) no-repeat scroll center top;
+	padding-left:0.8333em;
+	padding-right:0.8333em;
+}
+
+.comment-edit a:hover {
+	text-decoration: none;
+}
+
+.existing-comment-edit a:hover {
+	text-decoration: none;
+}
+
+.help {
+	padding:0.4167em;
+	margin-top:0.4167em;
+	margin-bottom:0.4167em;
+	background-color:#F0F0F0;
+	border:0.0833em solid #BBBBBB;
+}
+
+.instructions {
+	font-style: normal;
+	padding-top:0.4em;
+	padding-bottom:0.4em;
+	padding-left: 0.8333em;
+}
+
+.caption {
+	padding-left:1.2500em;
+	padding-bottom:0.4167em;
+}
+
+.specifications {
+	padding-bottom:0.4167em;
+	padding-top:0.4167em;
+	font-style: italic;
+	text-indent: 0.8333em;
+}
+
+.specifications:before {
+    content: "*";
+}
+
+.categories {
+	/*padding-left:1.2500em;
+	padding-top:0.8333em;
+	padding-bottom:0.2500em;
+	border-top:0.0833em solid #C65F02;
+	margin-top: 0.5833em;*/
+}
+
+.categories > .questions .categories {
+	border-top:0em;
+	margin-top:0;
+	padding:0;
+}
+
+.categories > .questions .question {
+	padding-left:0.8333em;
+}
+
+.categories td.category {
+	padding-right:0.2500em;
+	padding-bottom:0.2500em;
+	min-width:13.3333em;
+}
+
+.categories td.category:first-child {
+	padding-left:1.6667em;
+}
+
+.category .label {
+}
+
+label.label-open {
+	/*margin-left:2.0833em;*/
+	float:left;
+	margin-right:0.4167em;
+}
+
+div.open {
+	display: inline;
+}
+
+div.open.open-area {
+	display: block;
+	padding-left: 25px;
+}
+
+table.array {
+	border-bottom:0.0833em #666666 dotted;
+	border-spacing:0;
+}
+
+table.array tr.ui-widget-header {
+	background:none repeat scroll 0 0 #FFFFFF;
+}
+
+table.array tr.ui-widget-header th.obiba-quartz-category {
+	color:#666666;
+	padding:0.5000em 0.8333em 0.8333em;
+	font-weight: bold;
+	text-align:center;
+	/*width: 8.3333em;*/
+}
+
+table.array tr.even {
+	background-color:#FFFFFF;
+	color:#666666;
+	padding-left:0.4167em;
+	padding-right:0.4167em;
+	text-align:left;
+	
+}
+
+table.array tr.odd {
+	color:#666666;
+	padding-left:0.4167em;
+	padding-right:0.4167em;
+	text-align:left;
+}
+
+table.array td.label {
+	border-top: 0.0833em #666666 dotted;
+	height: 1.9167em;
+	color:#666666;
+	padding-left:0.4167em;
+	padding-right:0.4167em;
+	text-align:left;
+	width: 7.5000em;
+}
+
+table.array td.category {
+	text-align:center;
+	border-top: 0.0833em #666666 dotted;
+}
+
+div.page div.question div.categories div.category {
+	padding-bottom:0.4167em;
+}
+
+.radio-open {
+	/*display: none;*/
+}
+
+.obiba-quartz-checkbox-category:first-child {
+	padding-left: 1.6667em;
+}
+
+.obiba-quartz-checkbox-category {
+	min-width:13.3333em;
+	padding-bottom: 0.2500em;
+	padding-right: 0.2500em;
+}
+
+.categories .even:first-child > td.obiba-quartz-checkbox-category{
+	padding-top:0.9167em;
+}
+
+.checkbox-open {
+}
+
+.obiba-quartz-dropdown-category:first-child {
+	padding-top:0.7500em;
+	padding-left:2.2500em;
+}
+
+.obiba-quartz-dropdown-category {
+	padding-bottom:0.4167em;
+	padding-left:0.5833em;
+}
+
+div.field-invalid {
+	border-left:0.2500em solid red;
+	padding-left:0.4167em;
+}
+
+input.field-invalid {
+	background: #FFB6C1;
+}

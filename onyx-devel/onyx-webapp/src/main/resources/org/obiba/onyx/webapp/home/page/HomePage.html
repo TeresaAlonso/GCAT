@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <wicket:extend>
+      <div class="obiba-box-content">
+        <div wicket:id="unlockInterview">Hidden unlock popup</div>
+        
+        <div class="obiba-content-region">
+          <h1><wicket:message key="ParticipantExactSearchMsg" /></h1>
+        
+          <form wicket:id="searchForm" autocomplete="off">
+            <label for="participantIdentifier"><wicket:message key="ParticipantCode" /></label>
+            <input wicket:id="participantIdentifier" id="barCode" type="text" size="20" />
+            <button wicket:id="submit" class="obiba-button"><wicket:message key="GoToInterview" /></button>
+          </form>
+        </div>
+      </div>
+    </wicket:extend>
+  </body>
+</html>

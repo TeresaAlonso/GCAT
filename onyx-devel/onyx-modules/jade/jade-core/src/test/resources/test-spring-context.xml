@@ -1,0 +1,58 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+  
+  <tx:annotation-driven transaction-manager="transactionManager" />
+  
+  <bean id="activeInterviewService" class="org.obiba.onyx.core.service.impl.DefaultActiveInterviewServiceImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+  </bean>
+  
+  <bean id="appConfigService" class="org.obiba.onyx.core.service.impl.DefaultApplicationConfigurationServiceImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+  </bean>
+  
+  <bean id="activeInstrumentRunService"
+    class="org.obiba.onyx.jade.core.service.impl.DefaultActiveInstrumentRunServiceImpl" scope="session">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="userSessionService" ref="userSessionService" />
+  </bean>
+    
+  <bean id="userSessionService" class="org.obiba.onyx.core.service.impl.UserSessionServiceBeanImpl">
+    <property name="datePattern" value="yyyy-MM-dd" />
+    <property name="dateTimePattern" value="yyyy-MM-dd HH:mm" />
+    <property name="applicationConfigurationService" ref="appConfigService" />
+  </bean>
+
+  <bean id="baseStageState" class="org.obiba.onyx.engine.state.AbstractStageState"
+    abstract="true">
+    <property name="userSessionService" ref="userSessionService" />
+  </bean>
+    
+  <import resource="classpath:/test-hibernate-config.xml" />
+  <import resource="classpath:/test-db-config.xml" />
+  
+  <bean id="instrumentTypeFactory" class="org.obiba.onyx.jade.core.service.impl.InstrumentTypeFactoryBean" scope="singleton">
+    <property name="resourcePatterns">
+      <list>
+        <value>instruments/**/instrument-descriptor.xml</value> 
+      </list>
+    </property>
+  </bean>
+  
+  <bean id="experimentalConditionService" class="org.obiba.onyx.jade.core.service.impl.hibernate.ExperimentalConditionServiceHibernateImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="sessionFactory" ref="sessionFactory" />
+  </bean>
+
+  <bean id="experimentalConditionFactory" class="org.obiba.onyx.jade.core.domain.workstation.ExperimentalConditionFactory" init-method="registerExperimentalConditions">
+    <property name="experimentalConditionService" ref="experimentalConditionService" />
+    <property name="resourcePatterns">
+      <list>
+        <value>${org.obiba.onyx.config.path}/jade/experimental-conditions.xml</value>
+      </list>
+    </property>
+  </bean>
+
+</beans>

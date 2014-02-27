@@ -1,0 +1,78 @@
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+  <import resource="property-configurer.xml" />
+
+  <bean name="onyxApplicationConfiguration" class="org.obiba.onyx.webapp.OnyxApplicationConfiguration" primary="true">
+    <property name="configurationType" value="${org.obiba.onyx.webapp.configurationType}" />
+    <property name="version" ref="version" />
+  </bean>
+
+  <!-- Import Hibernate's context -->
+  <import resource="hibernate.xml" />
+  
+  <!-- Import Shiro's context -->
+  <import resource="shiro.xml" />
+
+  <!-- Import Onyx's context -->
+  <import resource="classpath:META-INF/spring/onyx-core/context.xml" />
+
+  <!-- Import Data export pipeline -->
+  <import resource="data-export.xml" />
+  
+  <!-- Import Data purge configuration -->
+  <import resource="data-purge.xml" />
+  
+  <!-- Import Participant reader context -->
+  <import resource="participant-reader.xml" />
+
+  <!-- Import an additional context, empty by default -->
+  <import resource="custom.xml" />
+
+  <!--
+    A static stage ordering strategy. Override this by implementing Comparable<Stage> and defining the stageOrderingStrategy bean to point to your
+    implementation
+  -->
+  <bean id="stageOrderingStrategy" class="org.obiba.onyx.engine.StaticStageOrderingStrategy">
+    <property name="stageOrdering" value="${org.obiba.onyx.engine.staticStageOrder}" />
+  </bean>
+
+  <!-- Implementation of UserService. Should not need to be overriden. -->
+  <bean id="userSessionService" class="org.obiba.onyx.webapp.service.impl.UserSessionServiceImpl" init-method="initialize" scope="session">
+    <aop:scoped-proxy />
+
+    <property name="datePattern" value="${org.obiba.onyx.dateFormat}" />
+    <property name="dateTimePattern" value="${org.obiba.onyx.dateTimeFormat}" />
+    <property name="userService" ref="userService" />
+    <property name="applicationConfigurationService" ref="appConfigService" />
+  </bean>
+
+  <!-- Defines Onyx's MessageSource bean. extraBasenames can be used to load other ResourceBundles as required. -->
+  <bean name="messageSource" class="org.obiba.onyx.spring.context.OnyxMessageSourceFactoryBean">
+    <property name="onyxConfigPath" value="${org.obiba.onyx.config.path}" />
+  </bean>
+
+  <!-- Used only during development -->
+  <bean id="testDatabaseSeed" class="org.obiba.onyx.webapp.seed.TestDatabaseSeed" scope="singleton">
+    <property name="resource" value="classpath:/appConfiguration.xml"/>
+    <property name="developmentSeed" value="true" />
+  </bean>
+
+  <bean id="onyxApplicationStartupListener" class="org.obiba.wicket.util.seed.DatabaseSeedWebApplicationStartupListener" scope="singleton">
+    <property name="databaseSeeds">
+      <list>
+        <ref bean="testDatabaseSeed" />
+      </list>
+    </property>
+  </bean>
+  
+  <bean id="menuBuilder" class="org.obiba.onyx.webapp.base.panel.MenuBuilder">
+    <property name="moduleRegistry" ref="moduleRegistry" />
+  </bean>
+
+</beans>

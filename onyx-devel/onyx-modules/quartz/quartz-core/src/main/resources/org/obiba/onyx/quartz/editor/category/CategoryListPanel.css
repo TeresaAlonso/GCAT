@@ -1,0 +1,20 @@
+img.action {
+	vertical-align: top;
+}
+
+button.addPlus {
+	background-color: transparent;
+	border-color: transparent;
+	cursor: pointer;
+}
+
+.instructions {
+	font-weight: normal;
+	font-size: 0.833em;
+}
+
+.shared {
+	font-size: 0.833em;
+	font-style: italic;
+	padding-left: 1.667em;
+}

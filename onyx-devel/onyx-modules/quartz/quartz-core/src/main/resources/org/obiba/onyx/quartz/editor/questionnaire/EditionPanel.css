@@ -1,0 +1,43 @@
+.content {
+	border-top: 0.0833em dotted #666666;;
+}
+
+.edition {
+	position: relative;
+	height: 800px;
+}
+
+.edition .tree {
+	position: absolute;
+	left: 0;
+	width: 30%;
+	top: 0;
+	bottom: 0;
+	overflow: auto;
+}
+
+.edition .properties {
+	position: absolute;
+	left: 31%;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	overflow: auto;
+}
+
+.edition .topMenu {
+	float: right;
+}
+
+.edition .topMenu a {
+	padding: 0 0.417em;
+}
+
+.edition .topMenu a img {
+	
+}
+
+.edition .titleIcon {
+	margin-right: 0.25em;
+	vertical-align: bottom;
+}

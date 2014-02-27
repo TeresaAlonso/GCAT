@@ -1,0 +1,71 @@
+<wicket:panel>
+  <span wicket:id="feedback" />
+    <div id="participantAndBarcodeAssignmentWrapper">
+      <div>
+		<table class="keyValueTable">
+		  <tbody>
+		    <span wicket:id="enrollmentId" />
+		    <span wicket:id="barcode"/>
+		  </tbody>
+		</table>
+		
+		<span wicket:id="essentialAttributeGroup" id="essentialAttributes"/>
+		<span wicket:id="configuredAttributeGroups" id="configuredAttributes"/>
+      </div>
+    
+      <div>
+		<span wicket:id="assignCodeToParticipantPanel"/>
+      </div>
+    </div>
+    
+</wicket:panel>
+
+<wicket:fragment wicket:id="rowFragment">
+  <tr>
+  	<td class="keyValueTableKey"><span wicket:id="label"/></td>
+    <td class="keyValueTableValue"><span wicket:id="value"/></td>
+  </tr>
+</wicket:fragment>
+<wicket:fragment wicket:id="textFieldFragment">
+  <tr>
+  	<td class="keyValueTableKey"><span wicket:id="label"/></td>
+    <td class="keyValueTableValue"><input wicket:id="value" type="text" size="40" /></td>
+  </tr>
+</wicket:fragment>
+<wicket:fragment wicket:id="genderFragment">
+  <tr>
+  	<td class="keyValueTableKey"><span wicket:id="label"/></td>
+    <td class="keyValueTableValue">
+      <select wicket:id="gender">
+	    <option>Female</option>
+	    <option>Male</option>
+	  </select>
+	</td>
+  </tr>
+</wicket:fragment>
+<wicket:fragment wicket:id="dateFragment">
+  <tr>
+  	<td class="keyValueTableKey"><span wicket:id="label"/></td>
+    <td class="keyValueTableValue"><input wicket:id="value" type="text" size="8" /></td>
+  </tr>
+</wicket:fragment>
+
+<wicket:fragment wicket:id="attributeGroupsFragment">
+  <div wicket:id="groupRepeater">
+    <wicket:enclosure child="groupName">
+  		<h2 class="h2-short"><span wicket:id="groupName" /></h2>
+    </wicket:enclosure>
+	<table>
+	  <tbody>
+	    <span wicket:id="group" />
+      </tbody>
+	</table>
+  </div>
+</wicket:fragment>
+
+<wicket:fragment wicket:id="attributeGroupFragment">
+  <tr wicket:id="attributeRepeater">
+    <td class="keyValueTableKey"><span wicket:id="label"/><span wicket:id="mandatory"/></td>
+    <td class="keyValueTableValue"><span wicket:id="field"/></td>
+  </tr>
+</wicket:fragment>

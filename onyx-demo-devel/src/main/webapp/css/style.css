@@ -1,0 +1,138 @@
+/*
+* Customize your Onyx styling by redefining the css directives.
+*/
+
+@import url("style-obiba.css");
+
+#contentWrapper {
+	background-color: #D2DAEF;
+}
+
+.obiba-content-region {
+	background-color: #97A8DB;
+}
+
+#contentWrapper td.keyValueTableValue {
+	background-color: #97A8DB;
+}
+
+td.keyValueTableKey {
+	font-weight: bold;
+	background-color: #D2DAEF;
+}
+
+.obiba-button,A.obiba-button:link,A.obiba-button:visited,A.obiba-button:active,A.obiba-button:hover
+	{
+	font-size: 1.2em;
+	padding: 0.5px;
+}
+
+button.obiba-button,input.obiba-button {
+	cursor: pointer;
+	padding: 0.5px;
+}
+
+.ui-layout-north {
+	top: 34px;
+}
+
+
+
+div.obiba-menu-item{
+	min-height:26px;
+
+}
+
+.obiba-content-region h1 {
+	color: #1A3150;
+	font-size: 1.3em;
+}
+
+table.entityTable th {
+	color: #33334C;
+}
+
+#participantPageSearch #searchByInputField.obiba-button {
+	background-image: url("../icons/loupe_button.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 26px;
+	padding: 0.09em 1em;
+}
+
+#logo {
+	height: 62px;
+	left: 4.1667em;
+	position: absolute;
+	top: 0.6667em;
+	width: 276px;
+}
+
+.headers {
+	font-size: 1.2em;
+}
+
+A.obiba-button:link,A.obiba-button:visited,A.obiba-button:active,A.obiba-button:hover
+	{
+	padding: 0.4em;
+}
+
+.even {
+	background-color: #D2DAEF;
+}
+
+.obiba-button,A:link.obiba-button,A:visited.obiba-button,A:active.obiba-button,A:hover.obiba-button
+	{
+	background-color: #DDDDDD;
+	background-image: -webkit-linear-gradient(top, rgb(206, 206, 206),
+		rgb(71, 71, 71));
+	background-image: -moz-linear-gradient(top, #ADADAD, #444444);
+	border: 1px solid #777777;
+	color: #EEEEEE;
+	height: 2.1em;
+	vertical-align: middle;
+	font-family: arial, verdana, sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+
+table.entityTable th a:link {
+    color: #000000;
+}
+
+#pageHeader a {
+  color: #000000;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+#pageHeader1 {
+  height: 37px;
+}
+
+.obiba-box-tab > .obiba-button {
+  color: #white !important;
+  font-weight: bold;
+  margin-right: 0.5833em;
+}
+
+#participantReceptionPageContent td.keyValueTableKey, #participantReceptionPageContent td.keyValueTableKeyIndent, #assignCodeToParticipant tr > td:first-child {
+    vertical-align: top;
+    width: 17.5em;
+}
+.obiba-box-tab > .obiba-button.ui-corner-all {
+  color: #EEEEEE !important;
+  padding: 0.55em 1em !important;
+}
+
+ .obiba-content-region h1 {
+   border-color: #1A3150;
+   border-style: none none solid;
+   border-width: 0.0833em;
+   color: #1A3150;
+   font-size: 1em;
+   margin-top: 0.5833em;
+   padding-bottom: 0.0833em;
+ }

@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ <html  
+      xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en">
+  <head>
+    <title wicket:id="title">[Questionnaire]</title>
+    <style type="text/css">
+    @media print {
+      .noprint { display: none; }
+    }
+    </style>
+    
+    <style type="text/css">
+    
+      body {
+        font-family:arial,FreeSans,Helvetica,sans-serif;
+        font-size: 12px;
+        margin: 0px;
+      }
+    	
+      #toolbar {
+        background:none repeat scroll 0 0 #666666;
+        border-bottom:1px solid #CCCCCC;
+        color:#FFFFFF;
+        opacity:0.7;
+        padding:5px;
+        position:fixed;
+        width: 100%;
+        top: 0px;
+      }
+    	
+      .title {
+        font-size:1em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .questionnaire {
+        margin-top: 40px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+	
+      .questionnaire > .title {
+        font-size:1.3em;
+      }
+  		
+      .section, .variables {
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+  		
+      .section .label {
+        font-size:1.1em;
+        font-weight: bold;
+      }
+
+      .section .page .label {
+        margin-left: 0px;
+      }
+
+      .section .page .question .label {
+        border: none;
+        font-weight: normal;
+      }
+
+      .section .page .question .label li {
+        padding-bottom: 5px;
+      }
+
+      .section .page .question .obiba-quartz-boilerplate .label {
+        padding-bottom:10px;
+      }
+
+      .section .label:before {
+        content: "Section: ";
+      }
+	
+      .subsection {
+        margin-left: 10px;
+      }
+	    
+      .page {
+        margin-left: 10px;
+        margin-top: 20px;
+        border:1px solid #AAAAAA;
+        padding-bottom: 10px;
+      }
+  		
+      .page > .label {
+        background-color:#DFDFDF;
+        border-bottom:1px solid #AAAAAA;
+        font-weight:bold;
+        padding-bottom:8px;
+        padding-left:10px;
+        padding-top:8px;
+      }
+  		  		
+      .page > .label:before {
+        content: "Page: ";
+      }
+
+      .page > .question > div:first-child {
+        border-top:1px solid #AAAAAA;
+        border-bottom:1px solid #AAAAAA;
+      }
+
+      .question .label:before {
+        content: " ";
+      }
+	    
+      .question > div:first-child {
+        background-color:#EEEEEE;
+        margin-top:10px;
+        padding-top:10px;
+        padding-left:10px;
+        padding-right:10px;
+      }
+  		
+      .instructions, .specifications, .caption {
+        font-style: italic;
+        margin-left: 5px;
+        padding-top:5px;
+      }
+ 
+      .instructions {
+        padding-top: 5px;
+      }
+
+      .specifications {
+        padding-bottom: 10px;
+      }
+
+      .question-details {
+        margin-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+  		
+      .details-content-label {
+        margin-left: 10px;
+        margin-bottom: 5px;
+      }
+
+      .attribute-margin {
+        margin-left: 20px;
+      }
+  		
+      .details-content-label .missing {
+        font-style: italic;
+      }
+  		
+      .type {
+        font-weight: normal;
+      }
+  		
+      .help-toggle {
+        display: none;
+      }
+		
+      .label-open {
+        float: left;
+      }
+		
+      .open {
+        display: inline;
+        padding-left: 5px;
+      }
+      
+      .open.open-area {
+        display: block;
+        padding-left: 25px;
+      }
+      
+      .variable {
+        border:1px solid #AAAAAA;
+        margin-left:10px;
+        margin-top:10px;
+        padding:10px;
+      }
+      
+      .script {
+        margin-left:20px;
+      }
+      
+      pre {
+        display: inline;
+      }
+  	</style>
+  	
+  	<script type="text/javascript">
+	<!--
+function getElementsByClass(node,searchClass,tag) {
+  var classElements = new Array();
+  var els = node.getElementsByTagName(tag); // use "*" for all elements
+  var elsLen = els.length;
+  var pattern = new RegExp("\\b"+searchClass+"\\b");
+  for (i = 0, j = 0; i < elsLen; i++) {
+    if ( pattern.test(els[i].className) ) {
+      classElements[j] = els[i];
+      j++;
+    }
+  }
+  return classElements;
+}
+
+function toggleDetails() {
+  var details = getElementsByClass(document,'question-details','*');
+  for (i=0;i<details.length;i++) {
+    toggle(details[i]);
+  }
+}
+
+function toggleVariables() {
+  var els = getElementsByClass(document,'variables','*');
+  for (i=0;i<els.length;i++) {
+    toggle(els[i]);
+  }
+}
+
+function toggle(el) {
+	if ( el.style.display != 'none' ) {
+		el.style.display = 'none';
+	}
+	else {
+		el.style.display = '';
+	}
+}
+	//-->
+	</script>
+  	
+    
+  </head>
+  <body>
+    <div id="toolbar" class="noprint">
+      <label for="toggle">
+        <input id="toggle" onclick="toggleDetails();toggleVariables();" checked="checked" type="checkbox">show variables
+      </label>
+    </div>
+    <div class="questionnaire">
+      <div class="title" wicket:id="questionnaire"/>
+      <div class="section" wicket:id="sections">
+        <div wicket:id="sectionPanel"/>
+      </div>
+      <div class="variables" wicket:id="variables">
+        <div wicket:id="variablePanel"/>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<stages>
+	<stage>
+		<name>Consentimiento</name>
+		<module>quartz</module>
+	</stage>
+	<stage>
+		<name>Extraccion</name>
+		<module>quartz</module>
+		<stageDependencyCondition class="scriptCondition">
+			<stages>
+				<string>Consentimiento</string>
+			</stages>
+			<script>
+                $('Consentimiento:CONSENTIMIENTO.NO').not()
+			</script>
+		</stageDependencyCondition>
+	</stage>
+	<stage>
+		<name>GCAT</name>
+		<module>quartz</module>
+		<stageDependencyCondition class="scriptCondition">
+			<stages>
+				<string>Consentimiento</string>
+			</stages>
+			<script>
+                $('Consentimiento:CONSENTIMIENTO.NO').not()
+			</script>
+		</stageDependencyCondition>
+	</stage>
+	<stage>
+		<name>Mostres</name>
+		<module>quartz</module>
+		<stageDependencyCondition class="scriptCondition">
+			<stages>
+				<string>Consentimiento</string>
+				<string>Extraccion</string>
+			</stages>
+			<script>
+                $('Consentimiento:CONSENTIMIENTO.NO').not()
+				.and($('Extraccion:QuestionnaireRun.timeEnd').isNull().not())
+			</script>
+		</stageDependencyCondition>
+	</stage>
+
+	<stage>
+		<name>ConclusionQuestionnaire</name>
+		<module>quartz</module>
+		<interviewConclusion>true</interviewConclusion>
+	</stage>
+
+</stages>

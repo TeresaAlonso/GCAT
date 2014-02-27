@@ -1,0 +1,123 @@
+td.valuepressed-value {
+  text-align:right;
+  width:60px;
+}
+
+.obiba-numeric-pad a:link {
+  color: #1E1B1D;
+}
+
+.obiba-numeric-pad #valuePressed input {
+  border:1px solid #B7B7B7;
+  font-weight:bold;
+  font-size:22px;
+  height:25px;
+  text-align: right;
+  width:60px;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+.obiba-numeric-pad a.button .label-container {
+  padding-right:25px;
+  padding-left:25px; 
+}
+
+.obiba-numeric-pad .pad-buttons {
+  margin:auto;
+  width:250px;
+}
+
+.obiba-numeric-pad .pad-buttons td {
+  padding-left: 8px; 
+  padding-right: 8px;
+}
+
+.obiba-numeric-pad .pad-buttons .imagelink a.button { 
+  margin-bottom:3px;
+}
+
+.obiba-numeric-pad .pad-buttons .imagelink a.button div.label-container { 
+  height:25px; 
+  padding-top:4px;
+}
+
+.obiba-numeric-pad .obiba-quartz-padForm  .obiba-quartz-padActions {
+  margin: auto; 
+  width: 180px;
+}
+
+.obiba-numeric-pad .obiba-quartz-padForm  a.button .label-container {
+  padding-right:10px;
+  padding-left:10px;  
+  text-align:center;
+}
+
+div.wicket-modal div.onyx .obiba-numeric-pad .imagelink { 
+  font-size:25px;  
+  font-weight:bold;
+}
+
+div.wicket-modal div.onyx .obiba-numeric-pad .obiba-quartz-padForm  .imagelink { 
+  font-size:18px; 
+  font-weight:normal;
+}
+
+div.wicket-modal div.onyx .obiba-numeric-pad .imagelink a.button { 
+  margin-bottom:3px;
+}
+
+div.wicket-modal div.onyx .obiba-numeric-pad .feedback {  
+  padding-top:0px;  
+  text-align:center;
+  margin-left:-35px;  
+  font-weight:bold;  
+  font-size:14px;
+  height:auto;
+}
+
+.obiba-numeric-pad .feedbackPanelERROR {
+  color:red;
+}
+
+div.wicket-modal div.onyx .obiba-numeric-pad .obiba-quartz-padForm  .valuepressed-label {  
+  font-size:14px;
+  text-align: right;
+}
+
+div.wicket-modal div.onyx .obiba-numeric-pad .obiba-quartz-padForm  .valuepressed-unit {  
+  font-size:14px;
+  text-align: left;
+}
+
+div.wicket-modal div.onyx .obiba-numeric-pad .separator {
+  border-top:1px solid #B7B7B7;
+  margin:10px 5px;
+}
+
+.obiba-numeric-pad .obiba-quartz-padForm  table {
+  margin: auto; padding: 0px 16px; width: 100%;
+}
+
+.obiba-quartz-padActions .imagelink {
+  float: left;
+  width: 80px;
+}
+
+.obiba-quartz-padActions .imagelink.obiba-button-ok {
+  padding-right:10px;
+}
+
+.obiba-quartz-padActions .imagelink.obiba-button-cancel {
+  padding-left:10px;
+}
+
+.obiba-button-ok a.button .label {
+    padding-right:5px;
+    text-transform: uppercase;
+}
+
+.obiba-button-ok a.button img {
+    position: relative;
+    vertical-align:bottom;
+}

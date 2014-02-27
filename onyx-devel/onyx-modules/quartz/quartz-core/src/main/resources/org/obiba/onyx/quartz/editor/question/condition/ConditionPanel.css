@@ -1,0 +1,11 @@
+.radioContent {
+	margin-left: 2.083em;
+}
+
+.radioContent img {
+	vertical-align: bottom;
+}
+
+img.preview {
+	cursor: pointer;
+}

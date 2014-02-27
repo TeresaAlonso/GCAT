@@ -1,0 +1,37 @@
+.sortableList {
+	margin: 0.417em;
+}
+
+table.item {
+	width: 100%;
+}
+
+table.item td.name {
+	cursor: move;
+}
+
+table.item td.action {
+	width: 1.667em;
+}
+
+.sortable {
+	list-style-type: none;
+	margin: 0.833em 0 0 0;
+	padding: 0;
+	width: 100%;
+}
+
+.sortable li {
+	margin: 0 0.417em 0.417em 0;
+	padding: 0.167em;
+	background: #ECECEC !important;
+	color: #666666 !important;
+}
+
+html>body .sortable li {
+	line-height: 0.9em;
+}
+
+.ui-state-highlight {
+	line-height: 0.9em;
+}

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<instrumentType>
+  <name>TensionArterial</name>
+
+  <!--<contraindications> removed for now
+    <contraIndication>
+      <code>Other_CI</code>
+      <requiresDescription>true</requiresDescription>
+      <type>OBSERVED</type>
+    </contraIndication>
+  </contraindications>-->
+
+  <instrumentParameters>
+        
+       
+    <output>
+      <code>1_TAS</code>
+      <measurementUnit>mmHg</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>299</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>299</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>82</integerMinValueMale>
+          <integerMaxValueMale>195</integerMaxValueMale>
+          <integerMinValueFemale>82</integerMinValueFemale>
+          <integerMaxValueFemale>195</integerMaxValueFemale>
+        </rangeCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>1_TAD</code>
+      <measurementUnit>mmHg</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>299</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>299</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>57</integerMinValueMale>
+          <integerMaxValueMale>103</integerMaxValueMale>
+          <integerMinValueFemale>57</integerMinValueFemale>
+          <integerMaxValueFemale>103</integerMaxValueFemale>
+        </rangeCheck>
+        <equalsParameterCheck>
+          
+          <parameterCode>1_TAS</parameterCode>
+          <operator>LESSER</operator>
+          <customizedDescription>EqualsParameterCheck_SystolicGreaterThanDiastolic1</customizedDescription>
+        </equalsParameterCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>1_PULS</code>
+      <measurementUnit>BPM</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>199</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>199</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>42</integerMinValueMale>
+          <integerMaxValueMale>101</integerMaxValueMale>
+          <integerMinValueFemale>42</integerMinValueFemale>
+          <integerMaxValueFemale>101</integerMaxValueFemale>
+        </rangeCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>2_TAS</code>
+      <measurementUnit>mmHg</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>299</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>299</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>82</integerMinValueMale>
+          <integerMaxValueMale>195</integerMaxValueMale>
+          <integerMinValueFemale>82</integerMinValueFemale>
+          <integerMaxValueFemale>195</integerMaxValueFemale>
+        </rangeCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>2_TAD</code>
+      <measurementUnit>mmHg</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>299</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>299</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>57</integerMinValueMale>
+          <integerMaxValueMale>103</integerMaxValueMale>
+          <integerMinValueFemale>57</integerMinValueFemale>
+          <integerMaxValueFemale>103</integerMaxValueFemale>
+        </rangeCheck>
+        <equalsParameterCheck>
+          
+          <parameterCode>2_TAS</parameterCode>
+          <operator>LESSER</operator>
+          <customizedDescription>EqualsParameterCheck_SystolicGreaterThanDiastolic2</customizedDescription>
+        </equalsParameterCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>2_PULS</code>
+      <measurementUnit>BPM</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>199</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>199</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>42</integerMinValueMale>
+          <integerMaxValueMale>101</integerMaxValueMale>
+          <integerMinValueFemale>42</integerMinValueFemale>
+          <integerMaxValueFemale>101</integerMaxValueFemale>
+        </rangeCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>3_TAS</code>
+      <measurementUnit>mmHg</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>299</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>299</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>82</integerMinValueMale>
+          <integerMaxValueMale>195</integerMaxValueMale>
+          <integerMinValueFemale>82</integerMinValueFemale>
+          <integerMaxValueFemale>195</integerMaxValueFemale>
+        </rangeCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>3_TAD</code>
+      <measurementUnit>mmHg</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>299</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>299</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>57</integerMinValueMale>
+          <integerMaxValueMale>103</integerMaxValueMale>
+          <integerMinValueFemale>57</integerMinValueFemale>
+          <integerMaxValueFemale>103</integerMaxValueFemale>
+        </rangeCheck>
+        <equalsParameterCheck>
+          
+          <parameterCode>3_TAS</parameterCode>
+          <operator>LESSER</operator>
+          <customizedDescription>EqualsParameterCheck_SystolicGreaterThanDiastolic3</customizedDescription>
+        </equalsParameterCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>3_PULS</code>
+      <measurementUnit>BPM</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>199</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>199</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>42</integerMinValueMale>
+          <integerMaxValueMale>101</integerMaxValueMale>
+          <integerMinValueFemale>42</integerMinValueFemale>
+          <integerMaxValueFemale>101</integerMaxValueFemale>
+        </rangeCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>CALC_AVG_SYSTOLIC_BP</code>
+      <measurementUnit>mmHg</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>COMPUTED</captureMethod>
+      <dataSource class="scriptDataSource">
+        <valueType>integer</valueType>
+        <script>
+        $('TensionArterial:1_TAS').plus($('TensionArterial:2_TAS')).plus($('TensionArterial:3_TAS')).div(3).type('integer');
+        </script>
+      </dataSource>
+    </output>
+
+    <output>
+      <code>CALC_AVG_DIASTOLIC_BP</code>
+      <measurementUnit>mmHg</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>COMPUTED</captureMethod>
+      <dataSource class="scriptDataSource">
+        <valueType>integer</valueType>
+        <unit>mmHg</unit>
+        <script>
+        $('TensionArterial:1_TAD').plus($('TensionArterial:2_TAD')).plus($('TensionArterial:3_TAD')).div(3).type('integer');
+        </script>
+      </dataSource>
+    </output>
+
+    <output>
+      <code>CALC_AVG_PULSE_RATE</code>
+      <measurementUnit>BPM</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>COMPUTED</captureMethod>
+      <dataSource class="scriptDataSource">
+        <valueType>integer</valueType>
+        <script>
+        $('TensionArterial:1_PULS').plus($('TensionArterial:2_PULS')).plus($('TensionArterial:3_PULS')).div(3).type('integer');
+        </script>
+      </dataSource>
+    </output>
+  </instrumentParameters>
+</instrumentType>

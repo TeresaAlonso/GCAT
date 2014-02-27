@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<instrumentType>
+  <name>CinturaCadera</name>
+
+  <!--<contraindications> removed for now
+    <contraIndication>
+      <code>Other_CI</code>
+      <requiresDescription>true</requiresDescription>
+      <type>OBSERVED</type>
+    </contraIndication>
+  </contraindications>-->
+
+  <instrumentParameters>
+        
+       
+    <output>
+      <code>1_Cintura</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>200</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>200</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>50</integerMinValueMale>
+          <integerMaxValueMale>150</integerMaxValueMale>
+          <integerMinValueFemale>50</integerMinValueFemale>
+          <integerMaxValueFemale>150</integerMaxValueFemale>
+        </rangeCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>1_Cadera</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>45</integerMinValueMale>
+          <integerMaxValueMale>300</integerMaxValueMale>
+          <integerMinValueFemale>45</integerMinValueFemale>
+          <integerMaxValueFemale>300</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>50</integerMinValueMale>
+          <integerMaxValueMale>150</integerMaxValueMale>
+          <integerMinValueFemale>50</integerMinValueFemale>
+          <integerMaxValueFemale>150</integerMaxValueFemale>
+        </rangeCheck>
+       
+      </integrityChecks>
+    </output>
+
+    
+
+    <output>
+      <code>2_Cintura</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>30</integerMinValueMale>
+          <integerMaxValueMale>200</integerMaxValueMale>
+          <integerMinValueFemale>30</integerMinValueFemale>
+          <integerMaxValueFemale>200</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>50</integerMinValueMale>
+          <integerMaxValueMale>150</integerMaxValueMale>
+          <integerMinValueFemale>50</integerMinValueFemale>
+          <integerMaxValueFemale>150</integerMaxValueFemale>
+        </rangeCheck>
+		  <parameterSpreadCheck>
+          
+          <parameterCode>1_Cintura</parameterCode>
+          <offset>1</offset>
+        </parameterSpreadCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>2_Cadera</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <integerMinValueMale>45</integerMinValueMale>
+          <integerMaxValueMale>300</integerMaxValueMale>
+          <integerMinValueFemale>45</integerMinValueFemale>
+          <integerMaxValueFemale>300</integerMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <integerMinValueMale>50</integerMinValueMale>
+          <integerMaxValueMale>150</integerMaxValueMale>
+          <integerMinValueFemale>50</integerMinValueFemale>
+          <integerMaxValueFemale>150</integerMaxValueFemale>
+        </rangeCheck>
+		  <parameterSpreadCheck>
+          
+          <parameterCode>1_Cadera</parameterCode>
+          <offset>1</offset>
+        </parameterSpreadCheck>
+             </integrityChecks>
+    </output>
+
+    
+
+    
+
+    
+
+    <output>
+      <code>CALC_AVG_CINTURA</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>COMPUTED</captureMethod>
+      <dataSource class="scriptDataSource">
+        <valueType>integer</valueType>
+        <script>
+        $('CinturaCadera:1_Cintura').plus($('CinturaCadera:2_Cintura')).div(2).type('integer');
+        </script>
+      </dataSource>
+    </output>
+
+    <output>
+      <code>CALC_AVG_CADERA</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>INTEGER</dataType>
+      <captureMethod>COMPUTED</captureMethod>
+      <dataSource class="scriptDataSource">
+        <valueType>integer</valueType>
+        <unit>cm</unit>
+        <script>
+        $('CinturaCadera:1_Cadera').plus($('CinturaCadera:2_Cadera')).div(2).type('integer');
+        </script>
+      </dataSource>
+    </output>
+
+    
+  </instrumentParameters>
+</instrumentType>

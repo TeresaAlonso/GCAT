@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<instrumentType>
+
+  <name>Altura</name>
+
+ <!-- <contraindications>
+    <contraIndication>
+      <code>UnableToStandUnassistedHandicap</code>
+      <type>OBSERVED</type>
+    </contraIndication>
+
+    <contraIndication>
+      <code>UnableToStandUnassistedWheelchair</code>
+      <type>OBSERVED</type>
+    </contraIndication>
+
+    <contraIndication>
+      <code>UnableToStandUnassistedCast</code>
+      <type>OBSERVED</type>
+    </contraIndication>
+
+    <contraIndication>
+      <code>Other_CI</code>
+      <requiresDescription>true</requiresDescription>
+      <type>OBSERVED</type>
+    </contraIndication>
+  </contraindications>  -->
+
+  <instrumentParameters>
+    
+    <output>
+      <code>1_ALTURA</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>DECIMAL</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <decimalMinValueMale>70.0</decimalMinValueMale>
+          <decimalMaxValueMale>220.0</decimalMaxValueMale>
+          <decimalMinValueFemale>70.0</decimalMinValueFemale>
+          <decimalMaxValueFemale>220.0</decimalMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <decimalMinValueMale>148.0</decimalMinValueMale>
+          <decimalMaxValueMale>192.0</decimalMaxValueMale>
+          <decimalMinValueFemale>148.0</decimalMinValueFemale>
+          <decimalMaxValueFemale>192.0</decimalMaxValueFemale>
+        </rangeCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>2_ALTURA</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>DECIMAL</dataType>
+      <captureMethod>MANUAL</captureMethod>
+      <integrityChecks>
+        <rangeCheck>
+          
+          <decimalMinValueMale>70.0</decimalMinValueMale>
+          <decimalMaxValueMale>220.0</decimalMaxValueMale>
+          <decimalMinValueFemale>70.0</decimalMinValueFemale>
+          <decimalMaxValueFemale>220.0</decimalMaxValueFemale>
+        </rangeCheck>
+        <rangeCheck>
+          <type>WARNING</type>
+          
+          <decimalMinValueMale>148.0</decimalMinValueMale>
+          <decimalMaxValueMale>192.0</decimalMaxValueMale>
+          <decimalMinValueFemale>148.0</decimalMinValueFemale>
+          <decimalMaxValueFemale>192.0</decimalMaxValueFemale>
+        </rangeCheck>
+        <parameterSpreadCheck>
+          
+          <parameterCode>1_ALTURA</parameterCode>
+          <offset>1</offset>
+        </parameterSpreadCheck>
+      </integrityChecks>
+    </output>
+
+    <output>
+      <code>CALC_AVG_HEIGHT</code>
+      <measurementUnit>cm</measurementUnit>
+      <dataType>DECIMAL</dataType>
+      <captureMethod>COMPUTED</captureMethod>
+      <dataSource class="scriptDataSource">
+        <valueType>decimal</valueType>
+        <script>
+        $('Altura:1_ALTURA').plus($('Altura:2_ALTURA')).div(2);
+        </script>
+      </dataSource>
+    </output>
+  </instrumentParameters>
+</instrumentType>

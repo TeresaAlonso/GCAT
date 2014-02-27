@@ -1,0 +1,40 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean class="org.obiba.onyx.opal.CsvDatasourceProvider" lazy-init="false">
+    <property name="magmaEngine" ref="magmaEngine" />
+    <property name="file" value="${org.obiba.onyx.config.path}/datasources/municipios/municipios.csv" />
+    <property name="datasourceName" value="municipios" />
+    <property name="tableName" value="municipios" />
+  </bean>
+ <bean class="org.obiba.onyx.opal.CsvDatasourceProvider" lazy-init="false">
+    <property name="magmaEngine" ref="magmaEngine" />
+    <property name="file" value="${org.obiba.onyx.config.path}/datasources/municipios/ocupaciones.csv" />
+    <property name="datasourceName" value="ocupaciones" />
+    <property name="tableName" value="ocupaciones" />
+  </bean>
+ <bean class="org.obiba.onyx.opal.CsvDatasourceProvider" lazy-init="false">
+    <property name="magmaEngine" ref="magmaEngine" />
+    <property name="file" value="${org.obiba.onyx.config.path}/datasources/medications/hormones.csv" />
+    <property name="datasourceName" value="hormones" />
+    <property name="tableName" value="hormones" />
+  </bean>
+ <bean class="org.obiba.onyx.opal.CsvDatasourceProvider" lazy-init="false">
+    <property name="magmaEngine" ref="magmaEngine" />
+    <property name="file" value="${org.obiba.onyx.config.path}/datasources/medications/ICD_cancer_cast.csv" />
+    <property name="datasourceName" value="ICD_cancer_cast" />
+    <property name="tableName" value="ICD_cancer_cast" />
+  </bean>
+ <bean class="org.obiba.onyx.opal.CsvDatasourceProvider" lazy-init="false">
+    <property name="magmaEngine" ref="magmaEngine" />
+    <property name="file" value="${org.obiba.onyx.config.path}/datasources/medications/Medicaments_Prostata.csv" />
+    <property name="datasourceName" value="Medicaments_Prostata" />
+    <property name="tableName" value="Medicaments_Prostata" />
+  </bean>
+ <bean class="org.obiba.onyx.opal.CsvDatasourceProvider" lazy-init="false">
+    <property name="magmaEngine" ref="magmaEngine" />
+    <property name="file" value="${org.obiba.onyx.config.path}/datasources/medications/Codi_ATC.csv" />
+    <property name="datasourceName" value="Codi_ATC" />
+    <property name="tableName" value="Codi_ATC" />
+  </bean>
+</beans>

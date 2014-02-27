@@ -1,0 +1,40 @@
+<wicket:panel>
+  	<span wicket:id="feedback" />
+  	<table class="keyValueTable">
+  	  <tr>
+  	    <td valign="top" class="keyValueTableKey"><wicket:message key="FieldTeamMember" /></td>
+  		<td class="keyValueTableValue"><span wicket:id="operator"/></td>
+  	  </tr>
+  	  <tr>
+  	    <td valign="top" class="keyValueTableKey"><wicket:message key="Password" /></td>
+  		<td class="keyValueTableValue"><input type="password" wicket:id="password" /></td>
+  	  </tr>
+  	  <tr>
+  	    <td valign="top" class="keyValueTableKey"><wicket:message key="ParticipantCode" /></td>
+    	<td class="keyValueTableValue"><input type="text" wicket:id="ParticipantCode" /></td>
+  	  </tr>
+  	  <tr>
+  	    <td valign="top" class="keyValueTableKey"><wicket:message key="Reason" /></td>
+  		<td class="keyValueTableValue">
+  			<select wicket:id="reasonsSelect"/></td>
+  	  </tr>
+  	  <tr>
+  	  	<td>&nbsp;</td>
+  	  	<td><span wicket:id="commentNote"/></td>
+  	  </tr>
+  	  <tr>
+  	    <td valign="top" class="keyValueTableKey"><wicket:message key="Comment" /></td>
+  		<td class="keyValueTableValue">
+			<textarea wicket:id="comment" rows="11" cols="25" class="actionComment">
+  			</textarea></td>
+  	  </tr>
+  	</table>
+  	
+  	<script language="JavaScript">
+  		$(document).ready(function () {
+            $('input[disabled], select[disabled], textarea[disabled]').each(function() {
+                $(this).parent().parent().addClass('ui-state-disabled');
+            });
+        });
+  	</script>
+</wicket:panel>

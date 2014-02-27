@@ -1,0 +1,22 @@
+<wicket:panel>
+
+	<table class="keyValueTable">
+		<tr>
+			<td class="keyValueTableKey" valign="top"><wicket:message
+				key="Layout" /></td>
+			<td><span wicket:id="layout"> <input type="radio"
+				wicket:id="defaultColumnLayout" /> <label
+				wicket:id="defaultColumnLayoutLabel"></label> <br />
+			<input type="radio" wicket:id="singleColumnLayout" /> <label
+				wicket:id="singleColumnLayoutLabel"></label> <br />
+			<input type="radio" wicket:id="gridLayout" /> <label
+				wicket:id="gridLayoutLabel"></label> </span> <input wicket:id="nbRows"
+				type="text" size="1" /> <wicket:message key="Rows" /></td>
+		</tr>		
+	</table>
+	
+	<div wicket:id="headerMultipleChoice" />
+
+	<div wicket:id="categories" />
+
+</wicket:panel>

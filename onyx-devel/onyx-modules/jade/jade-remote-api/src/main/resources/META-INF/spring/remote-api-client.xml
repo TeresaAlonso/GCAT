@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+  <bean name="instrumentExecutionService"
+    class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+    <property name="serviceUrl" value="${org.obiba.onyx.remoting.url}/InstrumentExecutionService" />
+    <property name="httpInvokerRequestExecutor" ref="cookieRequestExecutor"/>
+    <property name="serviceInterface" value="org.obiba.onyx.jade.instrument.service.InstrumentExecutionService" />
+  </bean>
+  
+  <bean name="clientLoggingService"
+    class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+    <property name="serviceUrl" value="${org.obiba.onyx.remoting.url}/ClientLoggingService" />
+    <property name="httpInvokerRequestExecutor" ref="cookieRequestExecutor"/>
+    <property name="serviceInterface" value="org.obiba.onyx.jade.instrument.service.ClientLoggingService" />
+  </bean>
+  
+  <bean id="cookieRequestExecutor" class="org.obiba.onyx.spring.remoting.CookieRequestExecutor">
+    <property name="name" value="JSESSIONID"/>
+    <property name="value" value="${JSESSIONID}"/>
+  </bean>
+  
+</beans>

@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+ <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>GCAT</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <link href="css/ui.theme.css" type="text/css" rel="stylesheet" />
+    <link href="css/layout.css" type="text/css" rel="stylesheet" />
+    <link href="css/adxmenu.css" type="text/css" rel="stylesheet" />
+    <link href="css/modal.css" type="text/css" rel="stylesheet" />    
+    <link href="css/modal-feedback.css" type="text/css" rel="stylesheet" /> 
+    <link rel="shortcut icon" href="images/favicon.ico" /> 
+  </head>
+
+  <body>
+  
+      <div wicket:id="reusable-confirmation-dialog"></div>
+      <div wicket:id="reusable-print-dialog"></div>
+  
+      <img wicket:id="logo"/>
+      
+      <div class="ui-layout-north">      
+      	<div id="pageHeader">          
+      		<div id="pageHeader1" wicket:id="header"></div>
+      		<div wicket:id="menuBar"></div>
+      	</div>
+      </div>
+      
+      <div class="ui-layout-center">
+      	<div id="contentWrapper" class="obiba-box ui-corner-all" style="overflow: auto;">
+        	<span style="display: none;" class="base-ajax-indicator" id="base-ajax-indicator" wicket:id="baseAjaxIndicator" />
+        	<div id="feedback">
+          		<span wicket:id="feedback" />
+        	</div>
+        	<wicket:child/>
+      	</div>
+      	<div id="pageFooter">
+            <div id="currentUser"><span wicket:id="userFullName" />&nbsp;|&nbsp;<span wicket:id="currentTime" /></div>
+            <div wicket:id="battery" style="float:left"></div>
+        	<div id="currentVersion">OBiBa / <span wicket:id="version" />&copy;</div>
+      	</div>
+      </div> 
+  </body>
+
+</html>

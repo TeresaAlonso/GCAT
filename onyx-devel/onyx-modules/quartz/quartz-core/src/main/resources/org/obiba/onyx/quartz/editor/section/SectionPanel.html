@@ -1,0 +1,24 @@
+<wicket:panel>
+
+	<span wicket:id="feedback" />
+	
+	<form wicket:id="form" autocomplete="off" >
+	
+		<table class="keyValueTable">
+			<tr>
+				<td class="keyValueTableKey"><label wicket:id="nameLabel"></label></td>
+				<td><input wicket:id="name" type="text" size="40" autocomplete="off" /> <span wicket:id="nameHelp" /></td>
+			</tr>			
+		</table>
+	
+		
+		<fieldset>
+			<legend><wicket:message key="LanguagesProperties" /></legend>
+		 	<div wicket:id="labels"></div>
+		</fieldset>
+		
+		<div wicket:id="saveCancel" class="modal-footer" />		
+		
+	</form>
+	
+</wicket:panel>

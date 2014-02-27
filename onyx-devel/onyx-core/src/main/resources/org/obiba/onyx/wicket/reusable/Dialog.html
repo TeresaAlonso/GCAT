@@ -1,0 +1,24 @@
+<wicket:panel>
+  <div wicket:id="content">   	
+  	<form wicket:id="form" autocomplete="off">
+  	  <div class="separator"/>
+	  
+	  <div class="obiba-content" wicket:id="content"/>
+	  
+	  <div class="separator"/>
+	  <div class="modal-footer">
+	  	<span wicket:id="customOptionsLeft"/>
+	  	<span wicket:id="customOptionsRight" />
+	  	<input type="button" class="obiba-button ui-corner-all obiba-button-yes" wicket:id="yes" />
+    	<input type="button" class="obiba-button ui-corner-all obiba-button-no" wicket:id="no" />
+    	<input type="submit" class="obiba-button ui-corner-all obiba-button-ok" wicket:id="ok" />
+    	<input type="button" class="obiba-button ui-corner-all obiba-button-close" wicket:id="close" />
+    	<input type="button" class="obiba-button ui-corner-all obiba-button-cancel" wicket:id="cancel" />
+	  </div>
+	</form>
+  </div>  
+</wicket:panel>
+
+<wicket:fragment wicket:id="optionListFragment">
+  <input type="button" class="obiba-button ui-corner-all" wicket:id="link" />&nbsp;  
+</wicket:fragment>

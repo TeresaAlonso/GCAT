@@ -1,0 +1,11 @@
+<wicket:panel>
+	<div class="wizard-body">
+		<script language="JavaScript">
+			WindowUtil.attachEvent("load", Resizer.resizeConsentFrame);
+			WindowUtil.attachEvent("resize", Resizer.resizeConsentFrame);		
+		</script>
+
+		<iframe id="consentFrame" width="100%" height="25em" frameborder="1"  marginheight="0" marginwidth="0" scrolling="no" wicket:id="pdfSubmitFrame">
+		</iframe>
+	</div>
+</wicket:panel>

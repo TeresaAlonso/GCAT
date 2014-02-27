@@ -1,0 +1,141 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd 
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+  <tx:annotation-driven transaction-manager="transactionManager" />
+
+  <bean id="jadeModule" class="org.obiba.onyx.jade.engine.JadeModule">
+    <property name="instrumentService" ref="instrumentService" />
+    <property name="instrumentRunService" ref="instrumentRunService" />
+    <property name="activeInterviewService" ref="activeInterviewService" />
+    <property name="stageManager">
+      <bean class="org.obiba.onyx.engine.StageManagerImpl">
+        <property name="stageDescriptor" value="${org.obiba.onyx.config.path}/jade/stages.xml" />
+      </bean>
+    </property>
+    <property name="beanResolver" ref="instrumentRunBeanResolver" />
+    <property name="variableEntityProvider">
+      <bean class="org.obiba.onyx.magma.HibernateBeanVariableEntityProvider">
+        <constructor-arg index="0" value="Participant" />
+        <constructor-arg index="1" value="participant.barcode" />
+        <property name="entityClass" value="org.obiba.onyx.core.domain.participant.Interview" />
+      </bean>
+    </property>
+    <property name="attributeHelper" ref="onyxAttributeHelper" />
+    <property name="customVariablesRegistry" ref="customVariablesRegistry" />
+  </bean>
+
+  <bean id="participantReport" class="org.obiba.onyx.print.impl.PdfTemplateReport" scope="session">
+    <property name="name" value="${org.obiba.onyx.jade.report.basename}" />
+    <property name="label">
+      <bean class="org.springframework.context.support.DefaultMessageSourceResolvable">
+        <constructor-arg value="ParticipantReportLabel" />
+      </bean>
+    </property>
+    <property name="reportTemplateLoader">
+      <bean class="org.obiba.onyx.core.io.support.LocalizedResourceLoader">
+        <property name="resourcePath" value="${org.obiba.onyx.jade.resources.path}" />
+        <property name="resourceName" value="${org.obiba.onyx.jade.report.basename}" />
+        <property name="resourceExtension" value=".pdf" />
+      </bean>
+    </property>
+    <property name="fieldToVariableMap" value="${org.obiba.onyx.jade.report.fieldToVariable}" />
+  </bean>
+
+  <bean name="baseJadeState" parent="baseStageState" class="org.obiba.onyx.jade.engine.state.AsbtractJadeState"
+    abstract="true" scope="prototype">
+    <property name="instrumentRunService" ref="instrumentRunService" />
+    <property name="instrumentService" ref="instrumentService" />
+    <property name="activeInstrumentRunService" ref="activeInstrumentRunService" />
+  </bean>
+
+  <bean id="jadeWaitingState" parent="baseJadeState" class="org.obiba.onyx.jade.engine.state.JadeWaitingState"
+    scope="prototype" />
+
+  <bean id="jadeReadyState" parent="baseJadeState" class="org.obiba.onyx.jade.engine.state.JadeReadyState" scope="prototype">
+  </bean>
+
+  <bean id="jadeNotApplicableState" parent="baseJadeState" class="org.obiba.onyx.jade.engine.state.JadeNotApplicableState"
+    scope="prototype" />
+
+  <bean id="jadeContraIndicatedState" parent="baseJadeState" class="org.obiba.onyx.jade.engine.state.JadeContraIndicatedState"
+    scope="prototype" />
+
+  <bean id="jadeInProgressState" parent="baseJadeState" class="org.obiba.onyx.jade.engine.state.JadeInProgressState"
+    scope="prototype">
+  </bean>
+
+  <bean id="jadeSkippedState" parent="baseJadeState" class="org.obiba.onyx.jade.engine.state.JadeSkippedState"
+    scope="prototype" />
+
+  <bean id="jadeCompletedState" parent="baseJadeState" class="org.obiba.onyx.jade.engine.state.JadeCompletedState"
+    scope="prototype" />
+
+  <bean id="jadeInterruptedState" parent="baseJadeState" class="org.obiba.onyx.jade.engine.state.JadeInterruptedState"
+    scope="prototype" />
+
+  <bean id="activeInstrumentRunService" class="org.obiba.onyx.jade.core.service.impl.DefaultActiveInstrumentRunServiceImpl"
+    scope="session">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="userSessionService" ref="userSessionService" />
+    <property name="instrumentService" ref="instrumentService" />
+    <property name="activeInterviewService" ref="activeInterviewService" />
+    
+    <!-- instructs the container to proxy the surrounding bean -->
+    <aop:scoped-proxy/>
+  </bean>
+
+  <bean id="experimentalConditionService" class="org.obiba.onyx.jade.core.service.impl.hibernate.ExperimentalConditionServiceHibernateImpl"
+    init-method="init">
+    <property name="experimentalConditionFactory" ref="experimentalConditionFactory" />
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="sessionFactory" ref="sessionFactory" />
+  </bean>
+
+  <bean id="experimentalConditionFactory" class="org.obiba.onyx.jade.core.domain.workstation.ExperimentalConditionFactory">
+    <property name="experimentalConditionService" ref="experimentalConditionService" />
+    <property name="resourcePatterns">
+      <list>
+        <value>${org.obiba.onyx.config.path}/jade/experimental-conditions.xml</value>
+      </list>
+    </property>
+  </bean>
+
+  <bean class="org.obiba.magma.spring.BeanValueTableFactoryBean">
+    <property name="valueTableName" value="Instruments" />
+    <property name="variableEntityProvider">
+      <bean class="org.obiba.onyx.magma.HibernateBeanVariableEntityProvider">
+        <constructor-arg index="0" value="Instrument" />
+        <constructor-arg index="1" value="barcode" />
+        <property name="entityClass" value="org.obiba.onyx.jade.core.domain.instrument.Instrument" />
+      </bean>
+    </property>
+    <property name="valueSetBeanResolver">
+      <bean class="org.obiba.onyx.jade.magma.InstrumentBeanResolver" />
+    </property>
+    <property name="variableValueSourceFactory">
+      <bean class="org.obiba.onyx.jade.magma.InstrumentVariableValueSourceFactory" />
+    </property>
+  </bean>
+
+  <bean class="org.obiba.magma.spring.BeanValueTableFactoryBean">
+    <property name="valueTableName" value="Workstations" />
+    <property name="variableEntityProvider">
+      <bean class="org.obiba.onyx.jade.magma.WorkstationValueSetProvider" />
+    </property>
+    <property name="valueSetBeanResolver">
+      <bean class="org.obiba.onyx.jade.magma.WorkstationBeanResolver" />
+    </property>
+    <property name="variableValueSourceFactory">
+      <bean class="org.obiba.onyx.jade.magma.WorkstationVariableValueSourceFactory" />
+    </property>
+  </bean>
+
+  <bean id="instrumentCaptureAndExportStrategy" class="org.obiba.onyx.jade.engine.variable.impl.InstrumentCaptureAndExportStrategy" />
+  <bean id="workstationCaptureAndExportStrategy" class="org.obiba.onyx.jade.engine.variable.impl.WorkstationCaptureAndExportStrategy" />
+
+  <bean id="instrumentRunBeanResolver" class="org.obiba.onyx.jade.magma.InstrumentRunBeanResolver" />
+
+</beans>

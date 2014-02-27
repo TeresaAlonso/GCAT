@@ -1,0 +1,36 @@
+<wicket:panel>
+    <div wicket:id="addInstrumentWindow" />
+	<div id="workstationPanelContent" class="obiba-box-content">
+  	<table>
+      <tr>
+        <td style="width: 100%">
+          <div id="instrumentContent" class="obiba-content-region">
+            <h1><wicket:message key="RegistryOfInstruments">Registry of Instruments</wicket:message></h1>
+          	<div class="label">
+              <wicket:message key="WorkstationInstrument.Instrunction1" />
+              <ul>
+                <li><wicket:message key="WorkstationInstrument.Instrunction2" /></li>
+                <li><wicket:message key="WorkstationInstrument.Instrunction3" /></li>
+                <li><wicket:message key="WorkstationInstrument.Instrunction4" /></li>
+              </ul>
+            </div>
+            <div id="addInstrumentAction">
+	          <a wicket:id="addInstrument" class="obiba-button">
+	            <wicket:message key="RegisterInstrument"/>
+	          </a>
+	        </div>
+            <div wicket:id="instrument-list" />
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <div wicket:id="workstationLogBorder" id="interviewPageContent" class="obiba-content-region">
+            <span wicket:id="workstationLogPanel" ></span>
+          </div>
+        </td>
+      </tr>
+  	</table>
+	</div>
+</wicket:panel>

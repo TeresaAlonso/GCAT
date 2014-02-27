@@ -1,0 +1,26 @@
+<wicket:panel>
+
+  <div wicket:id="modalWindow"/>
+
+  <table>
+    <tr>
+      <td>
+        <a class="obiba-button ui-corner-all"  wicket:id="addAttribute">
+          <img wicket:id="addImage" class="add"/>
+          <wicket:message key="AddAttribute"/>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <br/>
+
+  <span wicket:id="attributes"/>
+
+
+  <wicket:fragment wicket:id="linkFragment">
+    <a wicket:id="editAttribute"><img wicket:id="editImage"/></a>
+    <a wicket:id="deleteAttribute"><img wicket:id="deleteImage"/></a>
+  </wicket:fragment>
+
+</wicket:panel>

@@ -1,0 +1,197 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+  <import resource="version.xml" />
+  <import resource="batch.xml" />
+  <import resource="magma.xml" />
+  
+  <bean name="version" class="org.obiba.runtime.Version" primary="true">
+    <constructor-arg value="${project.version}-b${buildNumber}" />
+  </bean>
+
+  <bean name="actionDefinitionConfiguration" class="org.obiba.onyx.engine.ActionDefinitionConfiguration">
+    <property name="onyxConfigPath" value="${org.obiba.onyx.config.path}" />
+  </bean>
+
+  <bean id="interviewManager" class="org.obiba.onyx.core.service.impl.DefaultInterviewManagerImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="userSessionService">
+      <bean class="org.springframework.aop.scope.ScopedProxyFactoryBean">
+        <property name="targetBeanName" value="userSessionService" />
+      </bean>
+    </property>
+  </bean>
+
+  <bean id="interviewService" class="org.obiba.onyx.core.service.impl.DefaultInterviewServiceImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+  </bean>
+
+  <bean id="jobExecutionService" class="org.obiba.onyx.core.service.impl.DefaultJobExecutionServiceImpl">
+    <property name="jobLauncher" ref="jobLauncher" />
+  </bean>
+
+  <bean id="appointmentManagementService" class="org.obiba.onyx.core.service.impl.DefaultAppointmentManagementServiceImpl"
+    init-method="initialize">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="inputDirectory" value="${org.obiba.onyx.appointments.inputDirectory}" />
+    <property name="outputDirectory" value="${org.obiba.onyx.appointments.outputDirectory}" />
+    <property name="jobExplorer" ref="jobExplorer" />
+    <property name="job" ref="appointmentListUpdateJob" />
+    <property name="jobExecutionService" ref="jobExecutionService" />
+  </bean>
+
+  <bean id="stageExecutionContext" class="org.obiba.onyx.engine.state.StageExecutionContext" scope="prototype">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="moduleRegistry" ref="moduleRegistry" />
+    <property name="userSessionService" ref="userSessionService" />
+  </bean>
+
+  <bean id="appConfigService" class="org.obiba.onyx.core.service.impl.DefaultApplicationConfigurationServiceImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+  </bean>
+
+  <bean id="moduleRegistry" class="org.obiba.onyx.engine.ModuleRegistry">
+    <property name="stageOrderingStrategy" ref="stageOrderingStrategy" />
+  </bean>
+
+  <bean id="activeInterviewService" class="org.obiba.onyx.core.service.impl.DefaultActiveInterviewServiceImpl"
+    scope="session">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="interviewManager" ref="interviewManager" />
+    <property name="userSessionService" ref="userSessionService" />
+    <property name="moduleRegistry" ref="moduleRegistry" />
+    <property name="activeInterviewReleaseBean" ref="activeInterviewReleaseBean" />
+    <aop:scoped-proxy proxy-target-class="false" />
+  </bean>
+  
+  <bean id="activeInterviewReleaseBean" class="org.obiba.onyx.core.service.impl.ActiveInterviewReleaseBean"
+    scope="session" destroy-method="shutdown">
+    <property name="interviewManager" ref="interviewManager" />
+    <constructor-arg index="0" ref="userSessionService"/>
+  </bean>
+
+  <bean id="moduleRegistrationListener" class="org.obiba.onyx.engine.ModuleRegistrationListener">
+    <property name="moduleRegistry" ref="moduleRegistry" />
+  </bean>
+
+  <bean id="baseStageState" class="org.obiba.onyx.engine.state.AbstractStageState" abstract="true">
+    <property name="activeInterviewService" ref="activeInterviewService" />
+    <property name="actionDefinitionConfiguration" ref="actionDefinitionConfiguration" />
+  </bean>
+
+  <bean id="participantMetadata" class="org.obiba.onyx.core.domain.participant.ParticipantMetadata">
+    <property name="participantIdPattern" value="${org.obiba.onyx.participantId.pattern}" />
+    <property name="onyxConfigPath" value="${org.obiba.onyx.config.path}" />
+    <property name="supportedRecruitmentTypesString" value="${org.obiba.onyx.supportedRecruitmentTypes}" />
+    <property name="updateAppointmentListEnabled"  value="${org.obiba.onyx.appointments.enabled}" />
+    <property name="participantRegistryEnabled"  value="${org.obiba.onyx.participant.registry.enabled}" />
+  </bean>
+
+  <bean id="participantFactory" class="org.obiba.onyx.core.domain.participant.ParticipantFactory">
+    <property name="participantMetadata" ref="participantMetadata" />
+  </bean>
+
+  <bean id="pdfPrintingService" class="org.obiba.onyx.print.PdfPrintingService">
+    <property name="printerName" value="${org.obiba.onyx.pdfPrinterName}" />
+  </bean>
+
+  <bean id="onyxKeyStore" class="org.obiba.onyx.crypt.OnyxKeyStore" init-method="open" destroy-method="close">
+    <property name="keyStoreResource" value="${org.obiba.onyx.keystore.file}" />
+    <property name="keyStorePassword" value="${org.obiba.onyx.keystore.password}" />
+  </bean>
+
+  <bean id="onyxDataExportDestinations" class="org.obiba.onyx.engine.variable.export.OnyxDataExportFactoryBean">
+    <property name="destinationsResource" value="${org.obiba.onyx.config.path}/export-destinations.xml" />
+  </bean>
+
+  <bean id="onyxDataPurgeConfiguration" class="org.obiba.onyx.engine.variable.export.OnyxDataPurgeFactoryBean">
+    <property name="destinationsResource" value="${org.obiba.onyx.config.path}/purge.xml" />
+  </bean>
+
+  <bean id="algorithmEvaluator" class="org.obiba.onyx.math.impl.MathEclipseEvaluator">
+  </bean>
+
+  <bean id="hashingService" class="org.obiba.onyx.core.service.impl.MessageDigestPasswordHashingStrategyImpl"
+    init-method="validateAlgorithm">
+    <property name="algorithm" value="${org.obiba.onyx.password.hash.algorithm}" />
+  </bean>
+
+  <bean id="passwordLengthValidationStrategy" class="org.obiba.onyx.core.service.impl.AbstractPasswordLengthValidationStrategy"
+    abstract="true">
+    <property name="minimumSize" ref="${org.obiba.onyx.password.validation.minimumSize}" />
+    <property name="maximumSize" ref="${org.obiba.onyx.password.validation.maximumSize}" />
+  </bean>
+
+  <bean id="validationStrategy" class="org.obiba.onyx.core.service.impl.ConfigurablePasswordValidationStrategyImpl"
+    init-method="validateCharacterGroups">
+    <property name="allowedCharacterGroups" value="${org.obiba.onyx.password.validation.allowedCharacterGroups}" />
+    <property name="minimumCharacterGroupsUsage" value="${org.obiba.onyx.password.validation.minimumCharacterGroupsUsage}" />
+    <property name="preventUserAttributeUsage" value="${org.obiba.onyx.password.validation.preventUserAttributeUsage}" />
+  </bean>
+
+  <bean id="pdfTemplateEngine" class="org.obiba.onyx.print.impl.DefaultPdfTemplateEngine" scope="session">
+    <property name="dateFormat" value="${org.obiba.onyx.dateFormat}" />
+    <property name="magmaInstanceProvider" ref="magmaInstanceProvider"/>
+    <property name="messageSource" ref="messageSource"/>
+  </bean>
+
+  <bean id="printableReportsRegistry" class="org.obiba.onyx.print.impl.DefaultPrintableReportsRegistry" scope="session">
+  </bean>
+ 
+  <bean id="participantRegistry" class="org.obiba.onyx.spring.ParticipantRegistryFactoryBean" init-method="validateArgs">
+    <property name="participantRegistryType" value="${org.obiba.onyx.participant.registry.type}"/>
+    <property name="fixedBean">
+      <bean class="org.obiba.onyx.core.service.impl.FixedParticipantRegistry" />
+    </property>
+    <property name="restfulBean">
+      <bean class="org.obiba.onyx.core.service.impl.RestfulParticipantRegistry">
+        <property name="urlTemplate" value="${org.obiba.onyx.participant.registry.uriTemplate}" />
+        <property name="restTemplate">
+          <bean  class="org.springframework.web.client.RestTemplate">
+            <property name="messageConverters">
+              <list>
+                <bean class="org.obiba.onyx.core.service.impl.ParticipantHttpMessageConverter"/>
+              </list>
+            </property>
+            <property name="errorHandler">
+              <bean class="org.obiba.onyx.core.service.impl.RestfulParticipantRegistryErrorHandler"/>
+            </property>
+          </bean>
+        </property>
+      </bean>
+    </property>
+  </bean>
+   
+  <bean id="stageInstanceAlgorithm" class="org.obiba.onyx.core.domain.stage.DefaultStageInstanceAlgorithm" />
+
+  <bean id="purgeParticipantDataService" class="org.obiba.onyx.core.service.impl.PurgeParticipantDataServiceImpl">
+    <property name="purgeDataOlderThanInDays" value="${org.obiba.onyx.participant.purge}" />
+    <property name="multipleInterview" value="${org.obiba.onyx.participant.purge.multipleInterview}" />
+  </bean>
+
+  <bean id="exportLogService" class="org.obiba.onyx.core.service.impl.DefaultExportLogServiceImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+  </bean>
+
+  <bean id="captureAndExportStrategyMap" class="org.obiba.onyx.engine.variable.impl.CaptureAndExportStrategyMapFactoryBean" />
+
+  <bean id="participantCaptureAndExportStrategy" class="org.obiba.onyx.engine.variable.impl.ParticipantCaptureAndExportStrategy" />
+
+  <bean id="identifierSequenceProvider" class="org.obiba.onyx.spring.identifier.RandomIncrementIdentifierSequenceProviderFactoryBean" init-method="validateArgs">
+    <property name="useSequence" value="${org.obiba.onyx.participantId.generated}"/>
+    <property name="maxIncrement" value="${org.obiba.onyx.participantId.maxIncrement}"/>
+  </bean>
+
+  <bean id="opalJavaClient" class="org.obiba.onyx.opal.OpalClientFactoryBean">
+    <property name="url" value="${org.obiba.onyx.opal.url}" />
+    <property name="username" value="${org.obiba.onyx.opal.username}" />
+    <property name="password" value="${org.obiba.onyx.opal.password}" />
+  </bean>
+
+</beans>

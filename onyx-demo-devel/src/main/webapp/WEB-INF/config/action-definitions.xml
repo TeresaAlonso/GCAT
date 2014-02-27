@@ -1,0 +1,97 @@
+<actionDefinitions>
+	<!-- Optional comment for all actions of type EXECUTE, COMPLETE -->
+	<actionDefinition>
+		<code>action.EXECUTE</code>
+		<type>EXECUTE</type>
+		<askPassword>false</askPassword>
+		<askParticipantId>false</askParticipantId>
+		<commentMandatory>false</commentMandatory>
+		<askComment>false</askComment>
+	</actionDefinition>
+	<actionDefinition>
+		<code>action.COMPLETE</code>
+		<type>COMPLETE</type>
+		<askPassword>true</askPassword>
+		<askParticipantId>false</askParticipantId>
+		<commentMandatory>false</commentMandatory>
+	</actionDefinition>
+
+	<!-- Require a comment for all actions of type SKIP, STOP, INTERRUPT -->
+	<actionDefinition>
+		<code>action.SKIP</code>
+		<type>SKIP</type>
+		<askPassword>true</askPassword>
+		<askParticipantId>false</askParticipantId>
+		<commentMandatory>true</commentMandatory>
+		<reasonMandatory>false</reasonMandatory>
+		<reasons>
+			<string>Action.Reason.TechnicalProblem</string>
+			<string>Action.Reason.ParticipantDecision</string>
+			<string>Action.Reason.InterviewerDecision</string>
+			<string>Action.Reason.SeeComment</string>
+		</reasons>
+	</actionDefinition>
+	<actionDefinition>
+		<code>action.STOP</code>
+		<type>STOP</type>
+		<askPassword>true</askPassword>
+		<askParticipantId>false</askParticipantId>
+		<commentMandatory>true</commentMandatory>
+		<reasonMandatory>false</reasonMandatory>
+		<reasons>
+			<string>Action.Reason.TechnicalProblem</string>
+			<string>Action.Reason.ParticipantDecision</string>
+			<string>Action.Reason.InterviewerDecision</string>
+			<string>Action.Reason.SeeComment</string>
+		</reasons>
+	</actionDefinition>
+	<actionDefinition>
+		<code>action.INTERRUPT</code>
+		<type>INTERRUPT</type>
+		<askPassword>true</askPassword>
+		<askParticipantId>false</askParticipantId>
+		<commentMandatory>true</commentMandatory>
+		<reasonMandatory>false</reasonMandatory>
+		<reasons>
+			<string>Action.Reason.TechnicalProblem</string>
+			<string>Action.Reason.ParticipantDecision</string>
+			<string>Action.Reason.InterviewerDecision</string>
+			<string>Action.Reason.SeeComment</string>
+		</reasons>
+	</actionDefinition>
+
+	<!-- Providing a reason and/or comment is optional when cancelling an interview. 
+		There are no configured reasons (i.e., no dropdown list of reasons) from 
+		which to choose. -->
+	<actionDefinition>
+		<code>action.STOP.Interview</code>
+		<type>STOP</type>
+		<askParticipantId>false</askParticipantId>
+		<askPassword>true</askPassword>
+		<commentMandatory>true</commentMandatory>
+		<reasonMandatory>false</reasonMandatory>
+		<reasons>
+			<string>Action.Reason.TechnicalProblem</string>
+			<string>Action.Reason.ParticipantDecision</string>
+			<string>Action.Reason.InterviewerDecision</string>
+			<string>Action.Reason.SeeComment</string>
+		</reasons>
+	</actionDefinition>
+	<actionDefinition>
+		<code>action.STOP.Closed.Interview</code>
+		<type>STOP</type>
+		<askParticipantId>false</askParticipantId>
+		<askPassword>true</askPassword>
+		<commentMandatory>true</commentMandatory>
+		<reasonMandatory>false</reasonMandatory>
+		<reasons>
+			<string>Action.Reason.TechnicalProblem</string>
+			<string>Action.Reason.ParticipantDecision</string>
+			<string>Action.Reason.InterviewerDecision</string>
+			<string>Action.Reason.SeeComment</string>
+		</reasons>
+	</actionDefinition>
+</actionDefinitions>
+
+
+ 

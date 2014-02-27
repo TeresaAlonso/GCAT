@@ -1,0 +1,54 @@
+<stages>
+
+  <stage>
+    <name>Altura</name>
+    <module>jade</module>
+      <stageDependencyCondition class="scriptCondition">
+          <stages>
+              <string>Consentimiento</string>
+          </stages>
+          <script>
+              $('Consentimiento:CONSENTIMIENTO.NO').not()
+          </script>
+      </stageDependencyCondition>
+  </stage>
+
+  <stage>
+    <name>TensionArterial</name>
+    <module>jade</module>
+      <stageDependencyCondition class="scriptCondition">
+          <stages>
+              <string>Consentimiento</string>
+          </stages>
+          <script>
+              $('Consentimiento:CONSENTIMIENTO.NO').not()
+          </script>
+      </stageDependencyCondition>
+  </stage>
+
+  <stage>
+    <name>Peso</name>
+    <module>jade</module>
+      <stageDependencyCondition class="scriptCondition">
+          <stages>
+              <string>Consentimiento</string>
+          </stages>
+          <script>
+              $('Consentimiento:CONSENTIMIENTO.NO').not()
+          </script>
+      </stageDependencyCondition>
+  </stage>
+
+ <stage>
+    <name>CinturaCadera</name>
+    <module>jade</module>
+     <stageDependencyCondition class="scriptCondition">
+         <stages>
+             <string>Consentimiento</string>
+         </stages>
+         <script>
+             $('Consentimiento:CONSENTIMIENTO.NO').not()
+         </script>
+     </stageDependencyCondition>
+  </stage>
+</stages>

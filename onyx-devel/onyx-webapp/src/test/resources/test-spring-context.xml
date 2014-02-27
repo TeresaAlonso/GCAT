@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd"
+  default-autowire="no">
+  
+  <bean id="participantMetadata" class="org.obiba.onyx.core.domain.participant.ParticipantMetadata">
+    <property name="participantIdPattern" value=".*" />
+    <property name="onyxConfigPath" value="classpath:" />
+    <property name="supportedRecruitmentTypesString" value="ENROLLED,VOLUNTEER" />
+  </bean>
+  
+  <bean id="participantReader" class="org.obiba.onyx.core.etl.participant.impl.ParticipantReader" scope="prototype">
+    <property name="inputDirectory" value=""/>
+    <property name="participantMetadata" ref="participantMetadata" />
+    <property name="sheetNumber" value="1" />
+    <property name="headerRowNumber" value="2" />
+    <property name="firstDataRowNumber" value="3" />
+    <property name="columnToAttribute" value="Participant ID=Enrollment ID,Collection Site Id=Assessment Center ID,Sex=Gender,Appointment date/time=Appointment Time" />
+  </bean>
+  
+</beans>

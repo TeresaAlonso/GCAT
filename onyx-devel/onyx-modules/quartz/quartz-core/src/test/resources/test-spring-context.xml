@@ -1,0 +1,77 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd" default-autowire="no">
+
+  <bean id="questionnaireParticipantService" class="org.obiba.onyx.quartz.core.service.impl.hibernate.QuestionnaireParticipantServiceHibernateImpl" scope="singleton">
+    <property name="sessionFactory" ref="sessionFactory" />
+    <property name="persistenceManager" ref="persistenceManager" />
+  </bean>
+
+  <bean id="userSessionService" class="org.obiba.onyx.core.service.impl.UserSessionServiceBeanImpl">
+    <property name="datePattern" value="yyyy-MM-dd" />
+    <property name="dateTimePattern" value="yyyy-MM-dd HH:mm" />
+  </bean>
+
+  <bean id="interviewManager" class="org.obiba.onyx.core.service.impl.DefaultInterviewManagerImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="userSessionService" ref="userSessionService" />
+  </bean>
+
+  <bean id="activeInterviewService" class="org.obiba.onyx.core.service.impl.DefaultActiveInterviewServiceImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="userSessionService" ref="userSessionService" />
+    <property name="interviewManager" ref="interviewManager" />
+  </bean>
+
+  <bean id="baseStageState" class="org.obiba.onyx.engine.state.AbstractStageState" abstract="true">
+    <property name="userSessionService" ref="userSessionService" />
+  </bean>
+
+  <bean id="navigationStrategy" class="org.obiba.onyx.quartz.core.service.impl.DefaultNavigationStrategyImpl" />
+
+  <!-- Questionnaire UI factories -->
+  <bean id="quartz.DefaultPageLayoutFactory" class="org.obiba.onyx.quartz.core.wicket.layout.impl.standard.DefaultPageLayoutFactory" />
+
+  <bean id="quartz.DefaultQuestionPanelFactory" class="org.obiba.onyx.quartz.core.wicket.layout.impl.standard.DefaultQuestionPanelFactory" />
+
+  <bean id="quartz.DropDownQuestionPanelFactory" class="org.obiba.onyx.quartz.core.wicket.layout.impl.standard.DropDownQuestionPanelFactory" />
+
+  <bean id="pageLayoutFactoryRegistry" class="org.obiba.onyx.quartz.core.wicket.layout.PageLayoutFactoryRegistry" />
+
+  <bean id="questionPanelFactoryRegistry" class="org.obiba.onyx.quartz.core.wicket.layout.QuestionPanelFactoryRegistry" />
+
+  <bean id="questionnaireUIFactoryRegistrationListener" class="org.obiba.onyx.quartz.core.wicket.layout.QuestionnaireUIFactoryRegistrationListener">
+    <property name="pageLayoutFactoryRegistry" ref="pageLayoutFactoryRegistry" />
+    <property name="questionPanelFactoryRegistry" ref="questionPanelFactoryRegistry" />
+  </bean>
+
+  <bean id="activeQuestionnaireAdministrationService" class="org.obiba.onyx.quartz.core.service.impl.hibernate.ActiveQuestionnaireAdministrationServiceHibernateImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="sessionFactory" ref="sessionFactory" />
+    <property name="navigationStrategy" ref="navigationStrategy" />
+    <property name="activeInterviewService" ref="activeInterviewService" />
+    <property name="defaultLanguage" value="en" />
+  </bean>
+
+  <bean id="questionnaireBundleManager" class="org.obiba.onyx.quartz.core.engine.questionnaire.bundle.impl.QuestionnaireBundleManagerImpl">
+    <constructor-arg value="classpath:/questionnaires" />
+  </bean>
+
+  <bean id="moduleRegistry" class="org.obiba.onyx.engine.ModuleRegistry" />
+
+  <bean id="algorithmEvaluator" class="org.obiba.onyx.math.impl.MathEclipseEvaluator">
+  </bean>
+ 
+  <bean id="magmaEngine" class="org.obiba.magma.spring.MagmaEngineFactoryBean" destroy-method="destroy">
+    <property name="extensions">
+      <set>
+        <bean class="org.obiba.magma.js.MagmaJsExtension"/>
+        <bean class="org.obiba.magma.xstream.MagmaXStreamExtension" />
+      </set>
+    </property>
+  </bean>
+  <bean id="magmaInstanceProvider" class="org.obiba.onyx.magma.DefaultMagmaInstanceProvider" />
+  
+  <import resource="classpath:/test-hibernate-config.xml" />
+  <import resource="classpath:/test-db-config.xml" />
+
+</beans>

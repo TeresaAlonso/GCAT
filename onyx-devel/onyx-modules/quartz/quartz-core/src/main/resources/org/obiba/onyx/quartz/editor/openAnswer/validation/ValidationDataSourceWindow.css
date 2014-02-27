@@ -1,0 +1,11 @@
+.radioContent {
+	margin-left: 2.083em;
+}
+
+table#questionConditionContainer {
+	width: 600px;
+}
+
+img.preview {
+	cursor: pointer;
+}

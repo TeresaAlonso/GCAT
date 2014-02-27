@@ -1,0 +1,57 @@
+<questionnaire id="1" name="ConclusionQuestionnaire" version="1.0" uiType="standard" convertedToMagmaVariables="true">
+  <locales id="2">
+    <locale id="3">es</locale>
+    <locale id="4">ca</locale>
+  </locales>
+  <sections id="5">
+    <section id="6" name="CHECKLIST">
+      <pages id="7">
+        <page id="8" name="1" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="6"/>
+          <questions id="9">
+            <question id="10" name="ETAPAS" multiple="true" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="11">
+                <questionCategory id="12">
+                  <question reference="10"/>
+                  <category id="13" name="CONSENTIMIENTO" escape="false">
+                    <variableNames id="14"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="15"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="16">
+                  <question reference="10"/>
+                  <category id="17" name="MEDIDAS" escape="false">
+                    <variableNames id="18"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="19"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="20">
+                  <question reference="10"/>
+                  <category id="21" name="MUESTRAS" escape="false">
+                    <variableNames id="22"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="23"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="24">
+                  <question reference="10"/>
+                  <category id="25" name="CUESTIONARIO" escape="false">
+                    <variableNames id="26"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="27"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <questions id="28"/>
+            </question>
+          </questions>
+        </page>
+      </pages>
+      <sections id="29"/>
+    </section>
+  </sections>
+  <variables id="30"/>
+</questionnaire>

@@ -1,0 +1,96 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+  <tx:annotation-driven transaction-manager="transactionManager" />
+
+  <bean class="org.obiba.onyx.marble.engine.MarbleModule">
+    <property name="stageManager">
+      <bean class="org.obiba.onyx.engine.StageManagerImpl">
+        <property name="stageDescriptor" value="${org.obiba.onyx.marble.path}/stages.xml" />
+      </bean>
+    </property>
+    <property name="consentService" ref="consentService" />
+    <property name="variableToFieldMap" value="${org.obiba.onyx.marble.consent.variableToField}" />
+    <property name="beanResolver" ref="consentBeanResolver" />
+    <property name="variableEntityProvider">
+      <bean class="org.obiba.onyx.magma.HibernateBeanVariableEntityProvider">
+        <constructor-arg index="0" value="Participant" />
+        <constructor-arg index="1" value="participant.barcode" />
+        <property name="entityClass" value="org.obiba.onyx.core.domain.participant.Interview" />
+      </bean>
+    </property>
+    <property name="customVariablesRegistry" ref="customVariablesRegistry" />
+  </bean>
+
+  <bean id="baseMarbleStageState" parent="baseStageState" class="org.obiba.onyx.marble.engine.state.AbstractMarbleStageState"
+    abstract="true">
+    <property name="activeInterviewService" ref="activeInterviewService" />
+    <property name="consentService" ref="consentService" />
+  </bean>
+
+  <bean id="marbleReadyState" parent="baseMarbleStageState" class="org.obiba.onyx.marble.engine.state.MarbleReadyState"
+    scope="prototype">
+  </bean>
+
+  <bean id="marbleInProgressState" parent="baseMarbleStageState" class="org.obiba.onyx.marble.engine.state.MarbleInProgressState"
+    scope="prototype">
+  </bean>
+
+  <bean id="marbleCompletedState" parent="baseMarbleStageState" class="org.obiba.onyx.marble.engine.state.MarbleCompletedState"
+    scope="prototype">
+  </bean>
+  
+  <bean id="marbleNotApplicableState" parent="baseMarbleStageState" class="org.obiba.onyx.marble.engine.state.MarbleNotApplicableState"
+    scope="prototype">
+  </bean>
+
+  <bean id="consentService" class="org.obiba.onyx.marble.core.service.impl.ConsentServiceImpl">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="allowElectronicMode" value="${org.obiba.onyx.marble.consent.allowElectronicMode}" />
+    <property name="supportedConsentLocalesString" value="${org.obiba.onyx.marble.consent.manual.availableLocale}" />
+  </bean>
+
+  <bean id="activeConsentService" class="org.obiba.onyx.marble.core.service.impl.DefaultActiveConsentServiceImpl"
+    scope="session">
+    <property name="persistenceManager" ref="persistenceManager" />
+    <property name="activeInterviewService" ref="activeInterviewService" />
+  </bean>
+
+  <bean id="fdfProducer" class="org.obiba.onyx.marble.core.service.FdfProducer" scope="prototype">
+    <property name="consentFormTemplateLoader" ref="consentFormTemplateLoader" />
+    <property name="activeConsentService" ref="activeConsentService" />
+    <property name="activeInterviewService" ref="activeInterviewService" />
+    <property name="appConfigService" ref="appConfigService" />
+    <!-- See java.text.SimpleDateFormat for details for possible date formating -->
+    <property name="dateFormat" value="${org.obiba.onyx.marble.consent.dateFormat}" />
+  </bean>
+
+  <bean id="consentFormTemplateLoader" class="org.obiba.onyx.core.io.support.LocalizedResourceLoader">
+    <property name="resourcePath" value="${org.obiba.onyx.marble.resources.path}" />
+    <property name="resourceName" value="${org.obiba.onyx.marble.consent.basename}" />
+    <property name="resourceExtension" value=".pdf" />
+  </bean>
+
+  <bean id="consentBeanResolver" class="org.obiba.onyx.marble.magma.ConsentBeanResolver" />
+
+  <bean id="consentForm" class="org.obiba.onyx.print.impl.PdfVariableReport" scope="session">
+    <property name="name" value="${org.obiba.onyx.marble.consent.basename}" />
+    <property name="label">
+      <bean class="org.springframework.context.support.DefaultMessageSourceResolvable">
+        <constructor-arg value="ConsentFormLabel" />
+      </bean>
+    </property>
+    <property name="readyConditionConfigPath" value="${org.obiba.onyx.marble.path}" />
+    <property name="pdfVariablePath" value="Consent:pdfForm" />
+    <property name="dataCollectionMode">
+      <bean class="org.obiba.onyx.core.data.VariableDataSource">
+        <constructor-arg value="Consent:mode" />
+      </bean>
+    </property>
+    <property name="magmaInstanceProvider" ref="magmaInstanceProvider"/>
+  </bean>
+
+</beans>

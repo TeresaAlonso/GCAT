@@ -1,0 +1,53 @@
+<wicket:panel>
+	<div class="obiba-numeric-pad">
+	
+		<div class="separator"/>
+		
+		<div class="pad-buttons">
+			<table>
+				<tr>
+					<td><span class="imagelink" wicket:id="1" /></td>
+					<td><span class="imagelink" wicket:id="2" /></td>
+					<td><span class="imagelink" wicket:id="3" /></td>
+				</tr>
+				<tr>
+					<td><span class="imagelink" wicket:id="4" /></td>
+					<td><span class="imagelink" wicket:id="5" /></td>
+					<td><span class="imagelink" wicket:id="6" /></td>
+				</tr>
+				<tr>
+					<td><span class="imagelink" wicket:id="7" /></td>
+					<td><span class="imagelink" wicket:id="8" /></td>
+					<td><span class="imagelink" wicket:id="9" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><span class="imagelink" wicket:id="0" /></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="separator"/>
+		
+		<div wicket:id="feedback" class="feedback"/>
+		
+		<form class="obiba-quartz-padForm" wicket:id="form" autocomplete="off">		
+		  
+		  <table style="margin: auto; width: 100%;padding: 0px 16px;">
+		  	<tr>
+		  		<td class="valuepressed-label"><span wicket:id="category"/></td>
+		  		<td class="valuepressed-value"><span wicket:id="value"/></td>
+		  		<td class="valuepressed-unit"><span wicket:id="unit"/></td>
+		  		<td><span class="imagelink" wicket:id="clear" /></td>
+		  	</tr>	
+		  </table>		  
+		 
+		  <div class="separator"/>
+			
+		  <div class="obiba-quartz-padActions">
+		    <span class="imagelink obiba-button-ok" wicket:id="ok"/><span class="imagelink obiba-button-cancel" wicket:id="cancel"/>
+		  </div>
+		</form>		
+	</div>
+</wicket:panel>

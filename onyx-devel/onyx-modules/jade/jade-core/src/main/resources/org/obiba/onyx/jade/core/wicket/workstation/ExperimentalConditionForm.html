@@ -1,0 +1,43 @@
+<wicket:panel>
+  <div wicket:id="feedback"></div>
+  
+  <p wicket:id="selectCalibrationId">
+    <wicket:message key="SelectACalibration" /> <select wicket:id="experimentalConditionLogChoice"></select>
+  </p>
+  
+  <div wicket:id="experimentalConditionFormParent">
+    <div wicket:id="instructionTitle" class="experimental-condition-instructions-title">[Instructions]</div>
+    <div class="experimental-condition-instructions">
+      <span wicket:id="instructionList"><span wicket:id="instructionRows"></span></span>
+    </div>
+  
+    <table class="entityTable">
+      <thead>
+      </thead>
+      <tbody>
+        <span wicket:id="table"><span wicket:id="inputRows"></span></span>
+      </tbody>
+    </table>
+  </div>
+
+</wicket:panel>
+
+<wicket:fragment wicket:id="instructionFragment">
+  <li wicket:id="instruction"></li>
+</wicket:fragment>
+
+<wicket:fragment wicket:id="textFieldFragment">
+  <tr>
+    <td class="keyValueTableKey"><span wicket:id="label"/></td>
+    <td><span wicket:id="parenthesis">(<span wicket:id="unit"/>)</span></td>
+    <td class="keyValueTableValue"><span wicket:id="value" /></td>
+  </tr>
+</wicket:fragment>
+
+<wicket:fragment wicket:id="dropDownFragment">
+  <tr>
+    <td class="keyValueTableKey"><span wicket:id="label"/></td>
+    <td><span wicket:id="parenthesis">(<span wicket:id="unit"/>)</span></td>
+    <td class="keyValueTableValue"><span wicket:id="value" /></td>
+  </tr>
+</wicket:fragment>

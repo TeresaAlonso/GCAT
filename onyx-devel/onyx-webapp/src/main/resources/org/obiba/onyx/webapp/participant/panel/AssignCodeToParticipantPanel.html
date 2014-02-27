@@ -1,0 +1,21 @@
+<wicket:panel>
+  <h2></h2>
+  <form wicket:id="assignCodeToParticipantForm" autocomplete="off">   		
+    <table id="assignCodeToParticipant" class="keyValueTable">
+		<tbody>
+		    <tr>
+			    <td class="keyValueTableKey"><label for="participantCode"><span wicket:id="participantCodeLabel">Scan a participant ID *</span></label></td>
+                <td class="keyValueTableValue"><input wicket:id="participantCode" id="participantCode" type="text" size="20"/>
+                    <img src="images/codibarres.jpg" style="left: 5px; position: relative; top: 6px;"/>
+                    <a class="obiba-button" style="margin-left: 5px" wicket:id="generateId" href="#">
+                        <span wicket:id="generateIdLabel">Generate ID</span></a>
+                </td>
+		    </tr>
+		    <tr>
+			    <td class="keyValueTableKey"><label for="comment"><wicket:message key="comment" /></label></td>
+				<td class="keyValueTableValue"><textarea cols="83" rows="3" wicket:id="comment" name="comment"></textarea></td>
+		    </tr>
+		</tbody>			        				        				        	        		
+    </table>
+  </form>
+</wicket:panel>

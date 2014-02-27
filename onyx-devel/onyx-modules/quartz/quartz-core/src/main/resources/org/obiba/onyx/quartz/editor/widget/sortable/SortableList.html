@@ -1,0 +1,28 @@
+<wicket:panel>
+		
+	<div class="sortableList">
+
+		<span wicket:id="buttons">
+			<span wicket:id="button" />
+		</span>
+		
+		<ul wicket:id="listContainer" class="sortable">
+		<wicket:container wicket:id="sortableJs"></wicket:container>
+			<li wicket:id="listView" class="ui-state-default">
+				<table class="item">
+					<tr>
+						<td class="name"><span wicket:id="item"></span></td>
+						<td class="action"><a wicket:id="editItem"><img wicket:id="editImg" /></a></td>
+						<td class="action"><a wicket:id="deleteItem"><img wicket:id="deleteImg" /></a></td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+		
+	</div>  
+	
+	<wicket:fragment wicket:id="buttonFragment">
+		<a class="obiba-button ui-corner-all" wicket:id="button"><img wicket:id="buttonImg" /> <span wicket:id="buttonLabel" /></a>
+	</wicket:fragment>	
+	
+</wicket:panel>

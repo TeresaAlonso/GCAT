@@ -1,0 +1,63 @@
+<wicket:panel>
+
+	<span wicket:id="variableWindow" />
+
+	<span wicket:id="feedback" />
+	
+	<form wicket:id="form" autocomplete="off" >	
+	
+		<table class="keyValueTable">
+			<tr>
+				<td valign="top" class="keyValueTableKey"><label wicket:id="operatorLabel"></label></td>
+				<td><select wicket:id="operator" /></td>
+			</tr>	
+		</table>
+		
+		<br />
+		
+		<div wicket:id="validationType">
+		
+			<input wicket:id="questionType" type="radio" /> <label wicket:id="questionTypeLabel"></label>
+			<span wicket:id="questionTypeContainer">
+				<table id="questionConditionContainer" class="keyValueTable radioContent" wicket:id="questionConditionContainer">
+					<tr>
+						<td class="keyValueTableKey" valign="top"><label wicket:id="questionLabel"></label></td>
+						<td><select wicket:id="question"></select></td>
+					</tr>				
+					<tr>
+						<td class="keyValueTableKey" valign="top"><label wicket:id="categoryLabel"></label></td>
+						<td><select wicket:id="category"></select></td>
+					</tr>
+					<tr>
+						<td class="keyValueTableKey" valign="top"><label wicket:id="openAnswerLabel"></label></td>
+						<td><select wicket:id="openAnswer"></select></td>
+					</tr>				
+				</table>
+				<br />	
+			</span>
+			
+			<input wicket:id="variableType" type="radio" /> <label wicket:id="variableTypeLabel"></label>
+			<span wicket:id="variableTypeContainer">
+				<div class="radioContent" wicket:id="variableContainer">
+					<select wicket:id="variable"></select>
+					<a wicket:id="newVariable"><img wicket:id="newVariableImg" /></a>
+					<span wicket:id="previewVariableVisibility">
+						<img wicket:id="previewVariable" class="preview" />
+						<pre wicket:id="previewScript" />
+					</span>
+				</div> 
+				<br />
+			</span>
+			
+			<input wicket:id="javascriptType" type="radio" /> <label wicket:id="javascriptTypeLabel"></label>
+			<div class="radioContent">
+				<textarea wicket:id="javascriptField" cols="50" rows="7"></textarea>
+			</div>
+		
+		</div>
+	
+		<div wicket:id="saveCancel" class="modal-footer" />			
+	
+	</form>		
+				
+</wicket:panel>

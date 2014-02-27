@@ -1,0 +1,140 @@
+<questionnaire id="1" name="Consentimiento" version="1.0" uiType="standard" convertedToMagmaVariables="true">
+  <locales id="2">
+    <locale id="3">es</locale>
+    <locale id="4">ca</locale>
+  </locales>
+  <sections id="5">
+    <section id="6" name="1">
+      <pages id="7">
+        <page id="8" name="1" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="6"/>
+          <questions id="9">
+            <question id="10" name="CONSENTIMIENTO" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="11">
+                <questionCategory id="12">
+                  <question reference="10"/>
+                  <category id="13" name="SI" escape="false">
+                    <variableNames id="14"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="15"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="16">
+                  <question reference="10"/>
+                  <category id="17" name="NO" escape="false">
+                    <variableNames id="18"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="19"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <questions id="20"/>
+            </question>
+            <question id="21" name="INFORMACION_RESULTADOS" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="22">
+                <questionCategory id="23">
+                  <question reference="21"/>
+                  <category id="24" name="SI" escape="false">
+                    <variableNames id="25"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="26"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="27">
+                  <question reference="21"/>
+                  <category id="28" name="NO" escape="false">
+                    <variableNames id="29"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="30"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="31" path="Consentimiento:CONSENTIMIENTO.SI"/>
+              <questions id="32"/>
+            </question>
+            <question id="33" name="VOLUNTAD_PARTICIPANTE" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="34">
+                <questionCategory id="35">
+                  <question reference="33"/>
+                  <category id="36" name="SI" escape="false">
+                    <variableNames id="37"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="38"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="39">
+                  <question reference="33"/>
+                  <category id="40" name="NO" escape="false">
+                    <variableNames id="41"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="42"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="43" path="Consentimiento:CONSENTIMIENTO.SI"/>
+              <questions id="44"/>
+            </question>
+            <question id="45" name="EXCEPCIONES" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="46">
+                <questionCategory id="47">
+                  <question reference="45"/>
+                  <category id="48" name="RAZA" escape="false">
+                    <variableNames id="49"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="50"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="51">
+                  <question reference="45"/>
+                  <category id="52" name="GENERO" escape="false">
+                    <variableNames id="53"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="54"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="55">
+                  <question reference="45"/>
+                  <category id="56" name="ANIMALES" escape="false">
+                    <variableNames id="57"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="58"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="59">
+                  <question reference="45"/>
+                  <category id="60" name="OTROS" escape="false">
+                    <openAnswerDefinition id="61" name="OTROS" dataType="TEXT" required="true">
+                      <attributes id="62"/>
+                      <validators id="63">
+                        <dataValidator id="64" dataType="TEXT">
+                          <rangeValidator id="65">
+                            <maximum>250</maximum>
+                          </rangeValidator>
+                        </dataValidator>
+                      </validators>
+                      <validationDataSources id="66"/>
+                      <defaultValues id="67"/>
+                      <openAnswerDefinitions id="68"/>
+                      <variableNames id="69"/>
+                    </openAnswerDefinition>
+                    <variableNames id="70"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="71"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="72" path="Consentimiento:VOLUNTAD_PARTICIPANTE.SI"/>
+              <questions id="73"/>
+            </question>
+          </questions>
+        </page>
+      </pages>
+      <sections id="74"/>
+    </section>
+  </sections>
+  <variables id="75"/>
+</questionnaire>

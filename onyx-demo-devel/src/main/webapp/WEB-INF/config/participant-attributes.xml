@@ -1,0 +1,50 @@
+<participantAttributes>
+	<attribute>
+		<name>Postal Code</name>
+		<assignableAtEnrollment>true</assignableAtEnrollment>
+		<mandatoryAtEnrollment>true</mandatoryAtEnrollment>
+		<mandatoryAtReception>true</mandatoryAtReception>
+		<editableAtReception>true</editableAtReception>
+		<editableAfterReception>false</editableAfterReception>
+		<type>TEXT</type>
+        <validators>
+            <dataValidator dataType="TEXT">
+                <patternValidator>
+                    <pattern>
+                        <pattern>^\d{5}$</pattern>
+                    </pattern>
+                </patternValidator>
+            </dataValidator>
+        </validators>
+	</attribute>
+    <attribute>
+        <name>Tipus Mostra</name>
+        <assignableAtEnrollment>true</assignableAtEnrollment>
+        <mandatoryAtEnrollment>true</mandatoryAtEnrollment>
+        <mandatoryAtReception>true</mandatoryAtReception>
+        <editableAtReception>false</editableAtReception>
+        <editableAfterReception>false</editableAfterReception>
+        <type>TEXT</type>
+        <defaultValues>
+            <attributeValue type="TEXT">BLD</attributeValue>
+        </defaultValues>
+    </attribute>
+
+<!-- 	<attribute> -->
+<!-- 		<name>ID BST</name> -->
+<!-- 		<assignableAtEnrollment>true</assignableAtEnrollment> -->
+<!-- 		<mandatoryAtEnrollment>true</mandatoryAtEnrollment> -->
+<!-- 		<mandatoryAtReception>true</mandatoryAtReception> -->
+<!-- 		<editableAtReception>true</editableAtReception> -->
+<!-- 		<editableAfterReception>false</editableAfterReception> -->
+<!-- 		<type>TEXT</type> -->
+<!-- 		<validators> -->
+<!-- 			<dataValidator dataType="TEXT"> -->
+<!-- 				<rangeValidator> -->
+<!-- 					<minimum>1</minimum> -->
+<!-- 					<maximum>50</maximum> -->
+<!-- 				</rangeValidator> -->
+<!-- 			</dataValidator> -->
+<!-- 		</validators> -->
+<!-- 	</attribute> -->
+</participantAttributes>

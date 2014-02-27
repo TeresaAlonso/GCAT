@@ -1,0 +1,40 @@
+<wicket:panel>
+	<span wicket:id="feedback" />
+	<form wicket:id="userPanelForm" autocomplete="off" class="obiba-content">
+		
+	 	<table class="keyValueTable">
+			<tr>
+	    		<td valign="top" class="keyValueTableKey"><label for="lastName"><wicket:message key="LastName" /></label></td>
+	    		<td class="keyValueTableValueOdd"><input wicket:id="lastName" type="text" size="20"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td valign="top" class="keyValueTableKey"><label for="firstName"><wicket:message key="FirstName" /></label></td>
+	    		<td class="keyValueTableValueEven"><input wicket:id="firstName" type="text" size="20"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td valign="top" class="keyValueTableKey"><label for="login"><wicket:message key="login" /></label></td>
+	    		<td class="keyValueTableValueOdd"><input wicket:id="login" type="text" size="20"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td valign="top" class="keyValueTableKey"><label for="password"><wicket:message key="Password" /></label></td>
+	    		<td class="keyValueTableValueEven"><input wicket:id="password" type="password" size="20"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td valign="top" class="keyValueTableKey"><label for="email"><wicket:message key="Email" /></label></td>
+	    		<td class="keyValueTableValueOdd"><input wicket:id="email" type="text" size="20"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td valign="top" class="keyValueTableKey"><label for="roles"><wicket:message key="Role(s)" /></label></td>
+	    		<td class="keyValueTableValueEven"><select wicket:id="roles"/></td>
+	    	</tr>
+	    	<tr>
+	    		<td valign="top" class="keyValueTableKey"><label for="language"><wicket:message key="Language" /></label></td>
+	    		<td class="keyValueTableValueOdd"><select wicket:id="language" /></td>
+	    	</tr>
+		</table>
+		<div class="modal-footer">
+	    <button wicket:id="save" class="obiba-button ui-corner-all "><wicket:message key="Save"/></button> 		
+        <button wicket:id="cancel" class="obiba-button ui-corner-all"><wicket:message key="Cancel"/></button>
+        </div>    
+	</form>
+</wicket:panel>

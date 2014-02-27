@@ -1,0 +1,540 @@
+<questionnaire id="1" name="Extraccion" version="1.0" uiType="standard" convertedToMagmaVariables="true">
+  <locales id="2">
+    <locale id="3">es</locale>
+    <locale id="4">ca</locale>
+  </locales>
+  <sections id="5">
+    <section id="6" name="EXTRACCION">
+      <pages id="7">
+        <page id="8" name="1" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="6"/>
+          <questions id="9">
+            <question id="10" name="TIPO_PARTICIPANTE" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="11">
+                <questionCategory id="12">
+                  <question reference="10"/>
+                  <category id="13" name="Y" escape="false">
+                    <variableNames id="14"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="15"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="16">
+                  <question reference="10"/>
+                  <category id="17" name="N" escape="false">
+                    <variableNames id="18"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="19"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <questions id="20"/>
+              <attributes id="21"/>
+            </question>
+            <question id="22" name="TUBOS_NO_DONANTE" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="23">
+                <questionCategory id="24">
+                  <question reference="22"/>
+                  <category id="25" name="SED" escape="false">
+                    <variableNames id="26"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="27"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="28">
+                  <question reference="22"/>
+                  <category id="29" name="LHG" escape="false">
+                    <variableNames id="30"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="31"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="32">
+                  <question reference="22"/>
+                  <category id="33" name="SST" escape="false">
+                    <variableNames id="34"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="35"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="36">
+                  <question reference="22"/>
+                  <category id="37" name="ACD" escape="false">
+                    <variableNames id="38"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="39"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="40" path="Extraccion:TIPO_PARTICIPANTE.N"/>
+              <questions id="41"/>
+              <attributes id="42"/>
+            </question>
+            <question id="43" name="TUBOS_DONANTE" multiple="true" minCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="8"/>
+              <questionCategories id="44">
+                <questionCategory id="45">
+                  <question reference="43"/>
+                  <category id="46" name="ZZZ" escape="false">
+                    <variableNames id="47"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="48"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="49">
+                  <question reference="43"/>
+                  <category id="50" name="LHG" escape="false">
+                    <variableNames id="51"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="52"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="53">
+                  <question reference="43"/>
+                  <category id="54" name="SST" escape="false">
+                    <variableNames id="55"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="56"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="57">
+                  <question reference="43"/>
+                  <category id="58" name="ACD" escape="false">
+                    <variableNames id="59"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="60"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="61" path="Extraccion:TIPO_PARTICIPANTE.Y"/>
+              <questions id="62"/>
+            </question>
+          </questions>
+        </page>
+        <page id="63" name="2" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="6"/>
+          <questions id="64">
+            <question id="65" name="EDTA_TUBOS" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="63"/>
+              <questionCategories id="66">
+                <questionCategory id="67">
+                  <question reference="65"/>
+                  <category id="68" name="1" escape="false">
+                    <variableNames id="69"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="70"/>
+                  </category>
+                </questionCategory>
+                <questionCategory id="71">
+                  <question reference="65"/>
+                  <category id="72" name="2" escape="false">
+                    <variableNames id="73"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="74"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="75" path="Extraccion:TUBOS_NO_DONANTE.SED"/>
+              <questions id="76"/>
+              <attributes id="77"/>
+            </question>
+            <question id="78" name="EDTA_VOLUMEN" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="63"/>
+              <questionCategories id="79">
+                <questionCategory id="80">
+                  <question reference="78"/>
+                  <category id="81" name="VOLUMEN" escape="false">
+                    <openAnswerDefinition id="82" name="VOLUMEN1383812709237" required="true">
+                      <attributes id="83"/>
+                      <validators id="84"/>
+                      <validationDataSources id="85"/>
+                      <defaultValues id="86"/>
+                      <openAnswerDefinitions id="87">
+                        <open id="88" name="VOLUMEN_EDTA" dataType="TEXT" required="true">
+                          <attributes id="89"/>
+                          <validators id="90"/>
+                          <validationDataSources id="91"/>
+                          <defaultValues id="92">
+                            <data id="93" type="TEXT">
+                              <value class="string">10</value>
+                            </data>
+                            <data id="94" type="TEXT">
+                              <value class="string">&lt;10</value>
+                            </data>
+                            <data id="95" type="TEXT">
+                              <value class="string">&gt;10</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="82"/>
+                          <openAnswerDefinitions id="96"/>
+                          <variableNames id="97"/>
+                        </open>
+                        <open id="98" name="UNIDADES_EDTA" dataType="TEXT" required="true">
+                          <attributes id="99"/>
+                          <validators id="100"/>
+                          <validationDataSources id="101"/>
+                          <defaultValues id="102">
+                            <data id="103" type="TEXT">
+                              <value class="string">mL</value>
+                            </data>
+                            <data id="104" type="TEXT">
+                              <value class="string">N/A</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="82"/>
+                          <openAnswerDefinitions id="105"/>
+                          <variableNames id="106"/>
+                        </open>
+                      </openAnswerDefinitions>
+                      <variableNames id="107"/>
+                    </openAnswerDefinition>
+                    <variableNames id="108"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="109"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="110" path="Extraccion:TUBOS_NO_DONANTE.SED"/>
+              <questions id="111"/>
+              <attributes id="112"/>
+            </question>
+            <question id="113" name="BOLSA_CANTIDAD" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="63"/>
+              <questionCategories id="114">
+                <questionCategory id="115">
+                  <question reference="113"/>
+                  <category reference="68"/>
+                </questionCategory>
+                <questionCategory id="116">
+                  <question reference="113"/>
+                  <category reference="72"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="117" path="Extraccion:TUBOS_DONANTE.ZZZ"/>
+              <questions id="118"/>
+              <attributes id="119"/>
+            </question>
+            <question id="120" name="BOLSA_VOLUMEN" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="63"/>
+              <questionCategories id="121">
+                <questionCategory id="122">
+                  <question reference="120"/>
+                  <category id="123" name="VOLUMEN" escape="false">
+                    <openAnswerDefinition id="124" name="VOLUMEN1383820442887" required="true">
+                      <attributes id="125"/>
+                      <validators id="126"/>
+                      <validationDataSources id="127"/>
+                      <defaultValues id="128"/>
+                      <openAnswerDefinitions id="129">
+                        <open id="130" name="VOLUMEN_BOLSA" dataType="TEXT" required="true">
+                          <attributes id="131"/>
+                          <validators id="132"/>
+                          <validationDataSources id="133"/>
+                          <defaultValues id="134">
+                            <data id="135" type="TEXT">
+                              <value class="string">480</value>
+                            </data>
+                            <data id="136" type="TEXT">
+                              <value class="string">&lt;480</value>
+                            </data>
+                            <data id="137" type="TEXT">
+                              <value class="string">&gt;480</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="124"/>
+                          <openAnswerDefinitions id="138"/>
+                          <variableNames id="139">
+                            <entry>
+                              <string>BOLSA_VOLUMEN</string>
+                              <string>BOLSA_VOLUMEN.VOLUMEN.VOLUMEN_BOLSA</string>
+                            </entry>
+                          </variableNames>
+                        </open>
+                        <open id="140" name="UNIDADES_BOLSA" dataType="TEXT" required="true">
+                          <attributes id="141"/>
+                          <validators id="142"/>
+                          <validationDataSources id="143"/>
+                          <defaultValues id="144">
+                            <data id="145" type="TEXT">
+                              <value class="string">mL</value>
+                            </data>
+                            <data id="146" type="TEXT">
+                              <value class="string">N/A</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="124"/>
+                          <openAnswerDefinitions id="147"/>
+                          <variableNames id="148"/>
+                        </open>
+                      </openAnswerDefinitions>
+                      <variableNames id="149"/>
+                    </openAnswerDefinition>
+                    <variableNames id="150"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="151"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="152" path="Extraccion:TUBOS_DONANTE.ZZZ"/>
+              <questions id="153"/>
+              <attributes id="154"/>
+            </question>
+            <question id="155" name="PST_TUBOS" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="63"/>
+              <questionCategories id="156">
+                <questionCategory id="157">
+                  <question reference="155"/>
+                  <category reference="68"/>
+                </questionCategory>
+                <questionCategory id="158">
+                  <question reference="155"/>
+                  <category reference="72"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="159" path="Extraccion:PST"/>
+              <questions id="160"/>
+              <attributes id="161"/>
+            </question>
+            <question id="162" name="PST_VOLUMEN" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="63"/>
+              <questionCategories id="163">
+                <questionCategory id="164">
+                  <question reference="162"/>
+                  <category id="165" name="VOLUMEN" escape="false">
+                    <openAnswerDefinition id="166" name="VOLUMEN1383820748189" required="true">
+                      <attributes id="167"/>
+                      <validators id="168"/>
+                      <validationDataSources id="169"/>
+                      <defaultValues id="170"/>
+                      <openAnswerDefinitions id="171">
+                        <open id="172" name="VOLUMEN_PST" dataType="TEXT" required="true">
+                          <attributes id="173"/>
+                          <validators id="174"/>
+                          <validationDataSources id="175"/>
+                          <defaultValues id="176">
+                            <data id="177" type="TEXT">
+                              <value class="string">4.5</value>
+                            </data>
+                            <data id="178" type="TEXT">
+                              <value class="string">&lt;4.5</value>
+                            </data>
+                            <data id="179" type="TEXT">
+                              <value class="string">&gt;4.5</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="166"/>
+                          <openAnswerDefinitions id="180"/>
+                          <variableNames id="181"/>
+                        </open>
+                        <open id="182" name="UNIDADES_PST" dataType="TEXT" required="true">
+                          <attributes id="183"/>
+                          <validators id="184"/>
+                          <validationDataSources id="185"/>
+                          <defaultValues id="186">
+                            <data id="187" type="TEXT">
+                              <value class="string">mL</value>
+                            </data>
+                            <data id="188" type="TEXT">
+                              <value class="string">N/A</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="166"/>
+                          <openAnswerDefinitions id="189"/>
+                          <variableNames id="190"/>
+                        </open>
+                      </openAnswerDefinitions>
+                      <variableNames id="191"/>
+                    </openAnswerDefinition>
+                    <variableNames id="192"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="193"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="194" path="Extraccion:PST"/>
+              <questions id="195"/>
+              <attributes id="196"/>
+            </question>
+          </questions>
+        </page>
+        <page id="197" name="3" uIFactoryName="quartz.DefaultPageLayoutFactory">
+          <section reference="6"/>
+          <questions id="198">
+            <question id="199" name="SST_TUBOS" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="197"/>
+              <questionCategories id="200">
+                <questionCategory id="201">
+                  <question reference="199"/>
+                  <category reference="68"/>
+                </questionCategory>
+                <questionCategory id="202">
+                  <question reference="199"/>
+                  <category reference="72"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="203" path="Extraccion:SST"/>
+              <questions id="204"/>
+              <attributes id="205"/>
+            </question>
+            <question id="206" name="SST_VOLUMEN" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="197"/>
+              <questionCategories id="207">
+                <questionCategory id="208">
+                  <question reference="206"/>
+                  <category id="209" name="VOLUMEN" escape="false">
+                    <openAnswerDefinition id="210" name="VOLUMEN1383820860684" required="true">
+                      <attributes id="211"/>
+                      <validators id="212"/>
+                      <validationDataSources id="213"/>
+                      <defaultValues id="214"/>
+                      <openAnswerDefinitions id="215">
+                        <open id="216" name="VOLUMEN_SST" dataType="TEXT" required="true">
+                          <attributes id="217"/>
+                          <validators id="218"/>
+                          <validationDataSources id="219"/>
+                          <defaultValues id="220">
+                            <data id="221" type="TEXT">
+                              <value class="string">5</value>
+                            </data>
+                            <data id="222" type="TEXT">
+                              <value class="string">&lt;5</value>
+                            </data>
+                            <data id="223" type="TEXT">
+                              <value class="string">&gt;5</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="210"/>
+                          <openAnswerDefinitions id="224"/>
+                          <variableNames id="225"/>
+                        </open>
+                        <open id="226" name="UNIDADES_SST" dataType="TEXT" required="true">
+                          <attributes id="227"/>
+                          <validators id="228"/>
+                          <validationDataSources id="229"/>
+                          <defaultValues id="230">
+                            <data id="231" type="TEXT">
+                              <value class="string">mL</value>
+                            </data>
+                            <data id="232" type="TEXT">
+                              <value class="string">N/A</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="210"/>
+                          <openAnswerDefinitions id="233"/>
+                          <variableNames id="234"/>
+                        </open>
+                      </openAnswerDefinitions>
+                      <variableNames id="235"/>
+                    </openAnswerDefinition>
+                    <variableNames id="236"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="237"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="238" path="Extraccion:SST"/>
+              <questions id="239"/>
+              <attributes id="240"/>
+            </question>
+            <question id="241" name="ACD_TUBOS" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="197"/>
+              <questionCategories id="242">
+                <questionCategory id="243">
+                  <question reference="241"/>
+                  <category reference="68"/>
+                </questionCategory>
+                <questionCategory id="244">
+                  <question reference="241"/>
+                  <category reference="72"/>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="245" path="Extraccion:ACD"/>
+              <questions id="246"/>
+              <attributes id="247"/>
+            </question>
+            <question id="248" name="ACD_VOLUMEN" multiple="false" minCount="1" maxCount="1" uIFactoryName="quartz.DefaultQuestionPanelFactory">
+              <page reference="197"/>
+              <questionCategories id="249">
+                <questionCategory id="250">
+                  <question reference="248"/>
+                  <category id="251" name="VOLUMEN" escape="false">
+                    <openAnswerDefinition id="252" name="VOLUMEN1377154504250" required="true">
+                      <attributes id="253"/>
+                      <validators id="254"/>
+                      <validationDataSources id="255"/>
+                      <defaultValues id="256"/>
+                      <openAnswerDefinitions id="257">
+                        <open id="258" name="VOLUMEN" dataType="TEXT" required="true">
+                          <attributes id="259"/>
+                          <validators id="260"/>
+                          <validationDataSources id="261"/>
+                          <defaultValues id="262">
+                            <data id="263" type="TEXT">
+                              <value class="string">6</value>
+                            </data>
+                            <data id="264" type="TEXT">
+                              <value class="string">&lt;6</value>
+                            </data>
+                            <data id="265" type="TEXT">
+                              <value class="string">&gt;6</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="252"/>
+                          <openAnswerDefinitions id="266"/>
+                          <variableNames id="267"/>
+                        </open>
+                        <open id="268" name="UNIDADES" dataType="TEXT" required="true">
+                          <attributes id="269"/>
+                          <validators id="270"/>
+                          <validationDataSources id="271"/>
+                          <defaultValues id="272">
+                            <data id="273" type="TEXT">
+                              <value class="string">mL</value>
+                            </data>
+                            <data id="274" type="TEXT">
+                              <value class="string">N/A</value>
+                            </data>
+                          </defaultValues>
+                          <parentOpenAnswerDefinition reference="252"/>
+                          <openAnswerDefinitions id="275"/>
+                          <variableNames id="276"/>
+                        </open>
+                      </openAnswerDefinitions>
+                      <variableNames id="277"/>
+                    </openAnswerDefinition>
+                    <variableNames id="278"/>
+                    <noAnswer>false</noAnswer>
+                    <attributes id="279"/>
+                  </category>
+                </questionCategory>
+              </questionCategories>
+              <condition class="variableDataSource" id="280" path="Extraccion:ACD"/>
+              <questions id="281"/>
+              <attributes id="282"/>
+            </question>
+          </questions>
+        </page>
+      </pages>
+      <sections id="283"/>
+    </section>
+  </sections>
+  <variables id="284">
+    <variable id="285" name="ACD" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="286" name="script" valueType="text">$(&apos;TUBOS_DONANTE.ACD&apos;).or($(&apos;TUBOS_NO_DONANTE.ACD&apos;));</attribute>
+      </attributes>
+    </variable>
+    <variable id="287" name="PST" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="288" name="script" valueType="text">$(&apos;TUBOS_DONANTE.LHG&apos;).or($(&apos;TUBOS_NO_DONANTE.LHG&apos;));</attribute>
+      </attributes>
+    </variable>
+    <variable id="289" name="SST" valueType="boolean" entityType="Participant">
+      <attributes>
+        <attribute id="290" name="script" valueType="text">$(&apos;TUBOS_DONANTE.SST&apos;).or($(&apos;TUBOS_NO_DONANTE.SST&apos;));</attribute>
+      </attributes>
+    </variable>
+  </variables>
+</questionnaire>
